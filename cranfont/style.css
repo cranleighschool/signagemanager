@@ -1,0 +1,29 @@
+/*!
+ *  Name: Cranfont
+ *  Description: "Cranfont" - a webfont used by Cranleigh School and Cranleigh Prep School for use online.
+ * 	Version: 1.0
+ *	Author: Fred Bradley <frb@cranleigh.org>
+ */
+/* FONT PATH
+ * -------------------------- */
+@font-face {
+  font-family: 'Cranleigh';
+  src: url("font/icomoon.eot?y6hy95");
+  src: url("font/icomoon.eot?y6hy95#iefix") format("embedded-opentype"), url("font/icomoon.ttf?y6hy95") format("truetype"), url("font/icomoon.woff?y6hy95") format("woff"), url("font/icomoon.svg?y6hy95#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+.cranfont {
+  display: inline-block;
+  font: normal normal normal 14px/1 Cranleigh;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.cranfont-2x {
+  font-size: 2em; }
+
+.cranfont-logo:before {
+  content: '\e926'; }
+
+/*# sourceMappingURL=style.css.map */
