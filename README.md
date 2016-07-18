@@ -1,6 +1,11 @@
-==== Install Instructions ====
+## Install Instructions
+### Composer
+When you first pull this repo make sure you do:
+```sh
+composer install
+```
 
-== Conn.php ==
+### Conn.php
 ```php
 
 try{
