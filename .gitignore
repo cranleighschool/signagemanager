@@ -1,4 +1,6 @@
 conn.php
+vendor/
+
 
 # Windows image file caches
 Thumbs.db
