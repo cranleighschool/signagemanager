@@ -1,5 +1,15 @@
 <?php
 session_start();
+if(isset($_SESSION['user']['logged_in']) && $_SESSION['user']['logged_in'] === true) {
+	// continue
+} else {
+	if ( basename($_SERVER['SCRIPT_NAME']) == 'index.php') {
+		
+	} else {
+		header('Location: index.php');		
+	}
+}
+
 if (isset($_GET['logout'])) {
 	fnlogout();
 }
@@ -54,6 +64,24 @@ function fnconverttemplatename($PDO, $templateName) {
 	
 		}
 }
+// FUNCTION TO DETERMINE NAV MENU HIGHLIGHTING BASED ON AN ACTIVE PAGE
+function fnactivepage($currentpage, $sessionpage) {
+	if ($currentpage === $sessionpage) {
+		echo "active";
+	} else {
+		//NOTHING TO DISPLAY HERE
+	}
+}
+// FUNCTION TO DETERMINE NAV MENU HIGHLIGHTING BASED ON AN ACTIVE PAGE
+function fnactivepage2($linkpage) {
+	$sessionpage = basename($_SERVER['SCRIPT_NAME']);
+	if ($linkpage === $sessionpage) {
+		echo "active";
+	} else {
+		//NOTHING TO DISPLAY HERE
+	}
+}
+
 
 function fnslidesindate($PDO, $fntable, $fnqcol, $fnitem) {
 			date_default_timezone_set('Europe/London');

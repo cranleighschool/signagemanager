@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+<?php
+	require_once('conn.php');
+	require_once('functions.php');
+?><!DOCTYPE html>
 <html>
 <head>
 <?php 
-	include('conn.php');
-	include('functions.php');
 	include('head.php');
 
 	$screens = fnglobalquery($PDO, '*', 'screens', 1, 1, 1, 1, 1, 1, 'id', 'ASC');

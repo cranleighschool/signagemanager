@@ -1,7 +1,8 @@
-<!DocType HTML>
 <?php
-include "conn.php";
-include "functions.php";
+	require_once('conn.php');
+	require_once('functions.php');
+?><!DocType HTML>
+<?php
 
 $id = $_POST['id'];
 $screenName = $_POST['screenName'];

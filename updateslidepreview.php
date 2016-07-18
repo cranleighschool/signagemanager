@@ -1,8 +1,9 @@
-
+<?php
+	require_once('conn.php');
+	require_once('functions.php');
+?>
 <!DocType HTML>
 <?php
-include('conn.php');
-include('functions.php');
 $screenName = $_REQUEST['screenName'];
 
 $screenTable = $_POST['screenTable'];

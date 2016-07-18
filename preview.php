@@ -1,15 +1,13 @@
-<!DOCTYPE html>
+<?php
+	require_once('conn.php');
+	require_once('functions.php');	
+?><!DOCTYPE html>
 <html>
 <head>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="js/jquery.boxfit.js" type="text/javascript"></script> -->
 	<link rel="stylesheet" href="templates.css" />
 <?php 
-	include('conn.php');
-	include('functions.php');
-
-
-
 if(!isset($_REQUEST['id'])) {
 	$screenid = 1;
 } else {

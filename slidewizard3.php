@@ -1,13 +1,12 @@
-<!DOCTYPE html>
+<?php
+	require_once('conn.php');
+	require_once('functions.php');
+?><!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="./jquery.datetimepicker.css"/>
 <?php 
-	include('conn.php');
 	include('head.php');
-	include('functions.php');
-	
-	
 
 	if(empty($_REQUEST['screenName'])) {
 		$alert = '<div class="tjb_alertbox"><strong><h2>YOU HAVE NOT SELECTED A SCREEN - <a href="screenmanager.php">CLICK HERE</a></h2></strong></div>';

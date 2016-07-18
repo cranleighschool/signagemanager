@@ -1,5 +1,4 @@
 <?php
-	
 	require_once('conn.php');
 	require_once('functions.php');	
 ?>
@@ -17,7 +16,7 @@
 	}
 	
 	$screen = fnglobalquery($PDO, '*', 'screens', 'id', $id, 1, 1, 1, 1, 'id', 'ASC');
-	$screens = fnglobalquery($PDO, '*', 'screens', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
+	
 	$tableName = 'screen' . $id;
 	$slides = fnglobalquery($PDO, '*', $tableName, 1, 1, 1, 1, 1, 1, 'orderNumber', 'ASC');
 	$defaultTitle = $screen[0]['defaultTitle'];
