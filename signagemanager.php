@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+<?php
+	require_once('conn.php');
+	require_once('functions.php');
+	
+?><!DOCTYPE html>
 <html>
 <head>
 
 <?php 
-	include('conn.php');
 	include('head.php');
-	include('functions.php');
 	
 	$screens = fnglobalquery($PDO, '*', 'screens', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
 		if(empty($_REQUEST['alert'])) {
