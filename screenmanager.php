@@ -1,11 +1,15 @@
+<?php
+	
+	require_once('conn.php');
+	require_once('functions.php');	
+?>
 <!DOCTYPE html>
 <html>
 <head>
 
 <?php 
 	include('head.php');
-	include('conn.php');
-	include('functions.php');
+	
 	if(!isset($_REQUEST['id'])) {
 		$id = 1;
 	} else {

@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+<?php
+	require_once('conn.php');
+	require_once('functions.php');
+	
+?><!DOCTYPE html>
 <html>
 <head>
 
 <?php 
-	include('conn.php');
 	include('head.php');
-	include('functions.php');
 	
 	$screens = fnglobalquery($PDO, '*', 'screens', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
 		if(empty($_REQUEST['alert'])) {
@@ -81,7 +83,7 @@
 				</ul>
 				
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="?logout">Sign Out (TJB) <i class="fa fa-fw fa-sign-out"></i></a></li>
+					<li><a href="?logout">Sign Out (<?php echo strtoupper($_SESSION['user']['username']); ?>) <i class="fa fa-fw fa-sign-out"></i></a></li>
 					<li style="padding-top: 8px;">
 					
 
