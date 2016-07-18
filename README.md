@@ -1,7 +1,8 @@
-= Install Instructions = 
+==== Install Instructions ====
+
 == Conn.php ==
 ```php
-​
+
 try{
 	$conn_dbserver = '';
 	$conn_dbusername = '';
@@ -14,5 +15,4 @@ try{
 	print 'Error!: Failed to connect due to ' . $e->getMessage();
     die();	
 }
-​
-​```
+```
