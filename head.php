@@ -69,7 +69,7 @@
 				</ul>
 				
 				<ul class="nav navbar-nav navbar-right">
-					<!-- <li><a href="?logout">Sign Out (<?php #echo strtoupper($_SESSION['user']['username']); ?>) <i class="fa fa-fw fa-sign-out"></i></a></li> -->
+					<li><a href="?logout">Sign Out (<?php echo strtoupper($_SESSION['user']['username']); ?>) <i class="fa fa-fw fa-sign-out"></i></a></li>
 					<li style="padding-top: 8px;">
 					
 
