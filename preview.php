@@ -201,7 +201,7 @@ $date = date('Y-m-d H:i:s');
 			setInterval(function(){
 				
 				tjb_hiding();
-		},5000);
+		},<?php echo ($screenInfo[0]['slideDuration'] * 1000) ?>);
 	}
 	
 	function tjb_hiding() {

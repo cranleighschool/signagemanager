@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="cranfont/style.css" />	
 	<link rel="stylesheet" href="style.css" />
 	
-	<?php $screens = fnscreens($PDO, $_SESSION['user']['username'], 'tjb'); ?>
+	<?php $screens = fnscreens($PDO, $_SESSION['user']['username'], 'testteacher'); ?>
 	<!-- Navigation -->
    <nav class="navbar navbar-default navbar-fixed-top" style="border-bottom: 1px solid #0C223F;">
 		<div class="container">
