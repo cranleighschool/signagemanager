@@ -2,6 +2,7 @@
 include "conn.php";
 include "functions.php";
 
+$username = $_POST['username'];
 $screenid = $_POST['screenid'];
 $screenTable = 'screen' . $screenid;
 $template = $_POST['template'];
@@ -48,9 +49,9 @@ $stmt->execute();
 /* LOG INFO */
 date_default_timezone_set('Europe/London');
 $date = date('Y-m-d H:i:s');
-$action = 'Created New Slide on the ' . $screenTable . ' table - Slide Info - Title = ' . $title . ' / Message = ' . $message . ' / theWhere = ' . $theWhere . ' / theWhen = ' . $theWhen . ' / theWho = ' . $theWho . ' / theWhy = ' . $theWhy . ' / FontSize = ' . $FontSize . ' / lineHeight = ' . $lineHeight . ' / startDate= ' . $startDate . ' / endDate= ' . $endDate;
+$action = $username . ' Created a New Slide on the ' . $screenTable . ' table - Slide Info - Title = ' . $title . ' / Message = ' . $message . ' / theWhere = ' . $theWhere . ' / theWhen = ' . $theWhen . ' / theWho = ' . $theWho . ' / theWhy = ' . $theWhy . ' / FontSize = ' . $fontSize . ' / lineHeight = ' . $lineHeight . ' / startDate= ' . $startDate . ' / endDate= ' . $endDate;
 
-$userName = 'tbc';
+$userName = $username;
 fnaddtolog($PDO, $action, $userName, $date);
 /* END OF LOG INFO */
 

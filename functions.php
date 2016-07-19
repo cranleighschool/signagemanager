@@ -24,6 +24,17 @@ function fnlogout() {
 function fnlogin() {
 	$login = new Login($_POST['username'], $_POST['p']);
 }
+function fnscreens($PDO, $username, $adminName) {
+		$username = strtoupper($username);
+		$adminName = strtoupper($adminName);
+		if ($username == $adminName) {
+			$result = fnglobalquery($PDO, '*', 'screens', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
+		} else {
+			$result = fnglobalquery($PDO, '*', 'screens', 'owner', $username, 1, 1, 1, 1, 'id', 'ASC');
+		}
+		return $result;
+}
+
 function fnglobalquery($PDO, $fncol, $fntable, $fnwhere, $fnequals, $fnandone, $fna1equals, $fnandtwo, $fna2equals, $fnorderby, $fnsort) {
 	$stmt = $PDO->prepare("SELECT $fncol FROM $fntable WHERE $fnwhere=:fnequals AND $fnandone=:fna1equals AND $fnandtwo=:fna2equals ORDER BY $fnorderby $fnsort");
 	$stmt->bindParam(':fnequals', $fnequals);

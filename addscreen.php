@@ -27,6 +27,7 @@
 				<div class="form-group">
 					<label for="screenName">Screen Name</label>
 					<input type="text" class="form-control" id="screenName" name="screenName"/>
+					<input type="hidden" class="form-control" id="owner" name="owner" value="<?php echo strtoupper($_SESSION['user']['username']); ?>"/>
 				</div>
 				
 				<div class="form-group">

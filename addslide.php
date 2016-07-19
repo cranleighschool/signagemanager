@@ -29,6 +29,7 @@
 			
 					<div class="form-group">
 						<input type="hidden" value="<?php echo $screenid; ?>" id="screenid" name="screenid">
+						<input type="hidden" value="<?php echo strtoupper($_SESSION['user']['username']); ?>" id="username" name="username">
 						<label for="template">Template</label>
 						<select type="text" class="form-control" id="template" name="template" required>
 						<?php foreach($templates as $templaterows) {
