@@ -49,9 +49,12 @@ if(!empty($prevscreenArray)) {
 <div class="page_title">
 	<h1>Preview Screen - <?php echo $screenInfo[0]['screenName']; ?></h1>
 </div>
-	<iframe id="theframe" scrolling="no" src="preview.php?id=<?php echo $screenid; ?>"></iframe>
+	<div style="position: absolute; right: 10px; top: 5px;"><a href="#" data-toggle="tooltip" title="Slides on the preview change every 5 seconds"><i class="fa fa-question-circle fa-3x" aria-hidden="true" ></i></a></div>
+	
+	<iframe id="theframe" scrolling="no" src="previewFast.php?id=<?php echo $screenid; ?>"></iframe>
 
 	<div class="row">
+	
 		<div class="preview-controls">
 		<ul class="list-unstyled list-inline text-center">
 		<li><a href="slidewizard1.php?screenName=<?php echo $screenid; ?>">Add  New Slide</a></li>
@@ -68,6 +71,7 @@ if(!empty($prevscreenArray)) {
 	<div class="prevSlide">
 		<a href="previewscreen.php?screenName=<?php echo $prevScreen; ?>">Prev Screen</a>
 	</div>
+	
 	</div>
 <?php include('footer.php'); ?>	
 </body>

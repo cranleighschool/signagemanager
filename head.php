@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="style.css" />
 	
 	<?php $screens = fnscreens($PDO, $_SESSION['user']['username'], 'testteacher'); ?>
+	<!-- TEST TEACHER IS SET AS THE ADMIN ACCOUNT ABOVE -->
 	<!-- Navigation -->
    <nav class="navbar navbar-default navbar-fixed-top" style="border-bottom: 1px solid #0C223F;">
 		<div class="container">
@@ -30,7 +31,7 @@
 					<li><a href="#menu-toggle" id="menu-toggle" onClick="setPadding()"><i class="fa fa-bars"></i></a></li>
 					<li class="<?php fnactivepage2('signagemanager.php') ?>"><a  href="signagemanager.php">Home</a></li>				
 					<li class="dropdown <?php fnactivepage2('screenmanager.php'); fnactivepage2('addscreen.php'); ?>">
-						<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage Screen<span class="caret"></span></a>
+						<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage Slides<span class="caret"></span></a>
 							<ul class="dropdown-menu">	
 								<?php foreach($screens as $navscreens) {
 									?>

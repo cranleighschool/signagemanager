@@ -18,7 +18,7 @@
 	
 	<img src="images/CS_logo_landscape2.jpg" class="img-responsive" style="width: 100%;" />
 	<br />
-	<p>Current Version - v1.0</p>
+	<p>Current Version - v1.1</p>
 	<p>This software has been developed by Tom Butler in the Cranleigh School IT Department.</p>
 	<p>To contact to Tom please click the link <a href="mailto:support@cranleigh.org">here</a> or email support@cranleigh.org</p>
 	

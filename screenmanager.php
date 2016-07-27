@@ -79,6 +79,7 @@
 		<div class="row" style="margin-top: 100px">
 			<div class="preview-controls">
 			<ul class="list-unstyled list-inline text-center">
+			<li><a href="managescreen.php?id=<?php echo $id; ?>">Edit Screen</a></li>
 			<li><a href="previewscreen.php?screenName=<?php echo $id; ?>">Preview Screen</a></li>
 
 			</ul>
