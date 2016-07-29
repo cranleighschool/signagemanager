@@ -33,7 +33,7 @@ $stmt->execute();
 date_default_timezone_set('Europe/London');
 $date = date('Y-m-d H:i:s');
 $action = 'Edited Screen / ' . $screenName;
-$userName = 'tbc';
+$userName = strtoupper($_SESSION['user']['username']);
 fnaddtolog($PDO, $action, $userName, $date);
 /* END OF LOG INFO */
 

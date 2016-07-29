@@ -5,7 +5,6 @@
 <!DocType HTML>
 <?php
 $screenName = $_REQUEST['screenName'];
-
 $screenTable = $_POST['screenTable'];
 $id = $_POST['id'];
 $orderNumber = $_POST['orderNumber'];
@@ -72,7 +71,7 @@ date_default_timezone_set('Europe/London');
 $date = date('Y-m-d H:i:s');
 $action = 'Updated Slide (preview) info - Title = ' . $title . ' / Message = ' . $message . ' / theWhere = ' . $theWhere . ' / theWhen = ' . $theWhen . ' / theWho = ' . $theWho . ' / theWhy = ' . $theWhy . ' / FontSize = ' . $FontSize . ' / lineHeight = ' . $lineHeight . ' / startDate= ' . $startDate . ' / endDate= ' . $endDate;
 
-$userName = 'tbc';
+$userName = $owner;
 fnaddtolog($PDO, $action, $userName, $date);
 /* END OF LOG INFO */
 

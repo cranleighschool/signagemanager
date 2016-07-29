@@ -24,7 +24,7 @@ $imagequery = fnglobalquery($PDO, '*', 'gallery', 'id', $id, 1, 1, 1, 1, 'id', '
 $fileName = $imagequery[0]['fileName'];
 /* LOG INFO */
 $action = 'Deleted Image ID ' . $id . ' / Filename is ' . $fileName;
-$userName = 'tbc';
+$userName = strtoupper($_SESSION['user']['username']);
 /* END OF LOG INFO */
 $stmt = $PDO->prepare("DELETE FROM gallery WHERE id=:id");
 	

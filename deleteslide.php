@@ -35,7 +35,7 @@ $stmt->execute();
 date_default_timezone_set('Europe/London');
 $date = date('Y-m-d H:i:s');
 $action = 'Created New Slide on the ' . $screenTable . ' table - Slide Info - Title = ' . $title . ' / Message = ' . $message . ' / theWhere = ' . $theWhere . ' / theWhen = ' . $theWhen . ' / theWho = ' .$theWho . ' / theWhy = ' . $theWhy . ' / FontSize = ' . $FontSize . ' / lineHeight = ' . $lineHeight . ' / startDate= ' . $startDate . ' / endDate= ' . $endDate;
-$userName = 'tbc';
+$userName = strtoupper($_SESSION['user']['username']);
 fnaddtolog($PDO, $action, $userName, $date);
 /* END OF LOG INFO */
 

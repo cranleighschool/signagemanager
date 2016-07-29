@@ -2,7 +2,7 @@
 <?php
 include('conn.php');
 include('functions.php');
-
+$owner = strtoupper($_SESSION['user']['username']);
 $id = $_REQUEST['id'];
 /* LOG INFO */
 date_default_timezone_set('Europe/London');
@@ -25,7 +25,7 @@ $stmt->execute();
 }
 /* LOG INFO */
 $action = 'Deleted Screen ' . $screenName . ' / Screen ID = ' . $screenID;
-$userName = 'tbc';
+$userName = $owner;
 fnaddtolog($PDO, $action, $userName, $date);
 /* END OF LOG INFO */
 

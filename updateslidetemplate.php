@@ -31,7 +31,7 @@ $stmt->execute();
 }
 /* LOG INFO */
 $action = 'Changed Slide Template id' . $id . ' / Screen ID = ' . $screenid . ' / Template = ' . $template;
-$userName = 'tbc';
+$userName = strtoupper($_SESSION['user']['username']);
 fnaddtolog($PDO, $action, $userName, $date);
 /* END OF LOG INFO */
 
