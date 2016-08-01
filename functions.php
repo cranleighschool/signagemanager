@@ -9,18 +9,17 @@ if(isset($_SESSION['user']['logged_in']) && $_SESSION['user']['logged_in'] === t
 		header('Location: index.php');		
 	}
 }
-
 if (isset($_GET['logout'])) {
 	fnlogout();
 }
+
 require_once 'vendor/autoload.php';
 require_once 'class.Login.php';
-
-
 function fnlogout() {
 	session_destroy();
 	header("Location:index.php");
 }
+
 function fnlogin() {
 	$login = new Login($_POST['username'], $_POST['p']);
 }
@@ -377,15 +376,3 @@ $stmt->execute();
 			<?php
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
