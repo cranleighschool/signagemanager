@@ -56,7 +56,7 @@ if (isset($_SESSION['user']['logged_in']) && $_SESSION['user']['logged_in']===tr
 										<input class="form-control" placeholder="User Name" name="username" type="text" autofocus="">
 									</div>
 									<div class="form-group">
-										<input class="form-control" placeholder="Password" name="p" type="password" value="">
+										<input class="form-control" placeholder="Password" name="p" type="password">
 									</div>
 									<div class="checkbox">
 										<label>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['user']['logged_in']) && $_SESSION['user']['logged_in'] === true) {
-	// continue
+	$eMSG = null;
 } else {
 	if ( basename($_SERVER['SCRIPT_NAME']) == 'index.php') {
 		
@@ -9,17 +9,18 @@ if(isset($_SESSION['user']['logged_in']) && $_SESSION['user']['logged_in'] === t
 		header('Location: index.php');		
 	}
 }
+
 if (isset($_GET['logout'])) {
 	fnlogout();
 }
-
 require_once 'vendor/autoload.php';
 require_once 'class.Login.php';
+
+
 function fnlogout() {
 	session_destroy();
 	header("Location:index.php");
 }
-
 function fnlogin() {
 	$login = new Login($_POST['username'], $_POST['p']);
 }
@@ -375,4 +376,4 @@ $stmt->execute();
 			<a onclick="return confirm('Are you sure you want to delete this Image?')" data-toggle="tooltip" title="Delete Image" href="deleteimage.php?id=<?php echo $imageID; ?>&returnUrl=slidewizard2&returnUrlName=<?php echo $returnUrlName; ?>&returnUrlTemplate=<?php echo $returnUrlTemplate; ?>">
 			<?php
 		}
-	}
+}
