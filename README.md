@@ -21,5 +21,5 @@ try{
     die();	
 }
 ```
-TEST 10.6 Colours
+TEST 10.7 Colours
 
