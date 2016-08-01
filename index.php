@@ -64,7 +64,7 @@ if (isset($_SESSION['user']['logged_in']) && $_SESSION['user']['logged_in']===tr
 										</label>
 									</div>
 									<!-- Change this to a button or input when using this as a form -->
-									<input type="submit" class="btn btn-sm btn-success" value="Login" />
+									<input type="submit" class="btn " value="LOGIN" />
 								</fieldset>
 							</form>
 						</div>

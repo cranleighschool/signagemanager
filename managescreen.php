@@ -19,6 +19,10 @@
 	$slides = fnglobalquery($PDO, '*', $tableName, 1, 1, 1, 1, 1, 1, 'id', 'ASC');
 	$defaultTitle = $screen[0]['defaultTitle'];
 	$templates = fnglobalquery($PDO, '*', 'templates', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
+	$Tname = $screen[0]['defaultTemplate'];
+	$templateName = fnglobalquery($PDO, 'name', 'templates', 'className', $Tname, 1, 1, 1, 1, 'id', 'ASC');
+	
+	
 ?>
 
 <title>Digital Signage Manager</title>
@@ -54,7 +58,7 @@
 						<td><?php echo $row['defaultTitle']; ?></td>
 						<td><?php echo $row['slideDuration']; ?></td>
 						<td><?php echo $row['defaultBackground']; ?></td>
-						<td><?php echo $row['defaultTemplate']; ?></td>
+						<td><?php echo $templateName[0]['name']; ?></td>
 						<td><a href="screenmanager.php?id=<?php echo $row['id']; ?>"><i class="fa fa-th-list"></i></a></td>
 						<td><a href="previewscreen.php?screenName=<?php echo $row['id']; ?>"<i class="fa fa-play-circle-o"></i></a></td>
 						<td><a href="deleteslide.php?id=<?php echo $row['id']; ?>"><i class="fa fa-trash-o"></i></a></td>
