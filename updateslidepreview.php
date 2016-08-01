@@ -4,6 +4,7 @@
 ?>
 <!DocType HTML>
 <?php
+$owner = $_SESSION['user']['username'];
 $screenName = $_REQUEST['screenName'];
 $screenTable = $_POST['screenTable'];
 $id = $_POST['id'];
