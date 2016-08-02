@@ -8,13 +8,13 @@
 <script src="js/jquery.boxfit.js" type="text/javascript"></script> -->
 	<link rel="stylesheet" href="templates.css" />
 <?php 
-if(!isset($_REQUEST['id'])) {
-	$screenid = 1;
+if(!isset($_REQUEST['screenName'])) {
+	// Redirect to error page
 } else {
-	$screenid = $_REQUEST['id'];
+	$screenName = $_REQUEST['screenName'];
 }
-$screenTable = 'screen' . $screenid;
-$screenInfo = fnglobalquery($PDO, '*', 'screens', 'id', $screenid, 1, 1, 1, 1, 'id', 'ASC');
+$screenTable = 'screen' . $screenName;
+$screenInfo = fnglobalquery($PDO, '*', 'screens', 'id', $screenName, 1, 1, 1, 1, 'id', 'ASC');
 $slides = fnslidesindate($PDO, $screenTable, 1, 1);
 $slideCount = count($slides);
 ?>
@@ -110,15 +110,6 @@ $t++;
 		</div>
 	</div>
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		<?php
 	}
 	} else {
@@ -172,24 +163,13 @@ $t++;
 		<h1><?php echo strtoupper($slides['theWhy']); ?></h1>
 	</div>
 </div>
-
-
-
 <?php
 } 
 }
-?>
-
-<?php 
-#echo 'slide count is...';
-#echo $slideCount; 
 date_default_timezone_set('Europe/London');
 $date = date('Y-m-d H:i:s');
-#echo $date;
 ?>
-
 </body>
-
 <script>
 	var slideNum = 0;	
 	var currentSlide;

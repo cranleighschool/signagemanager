@@ -16,7 +16,6 @@
 	}
 	
 	$screen = fnglobalquery($PDO, '*', 'screens', 'id', $id, 1, 1, 1, 1, 'id', 'ASC');
-	
 	$tableName = 'screen' . $id;
 	$slides = fnglobalquery($PDO, '*', $tableName, 1, 1, 1, 1, 1, 1, 'orderNumber', 'ASC');
 	$defaultTitle = $screen[0]['defaultTitle'];
@@ -78,11 +77,17 @@
 		
 		<div class="row" style="margin-top: 100px">
 			<div class="preview-controls">
-			<ul class="list-unstyled list-inline text-center">
-			<li><a href="managescreen.php?id=<?php echo $id; ?>">Edit Screen</a></li>
-			<li><a href="previewscreen.php?screenName=<?php echo $id; ?>">Preview Screen</a></li>
-
-			</ul>
+				<ul class="list-unstyled list-inline text-center">
+				<li>
+					<a href="managescreen.php?id=<?php echo $id; ?>">Edit Screen</a>
+				</li>
+				<li>
+					<a href="previewscreen.php?screenName=<?php echo $id; ?>">Preview Screen</a>
+				</li>
+				<li>
+					<a href="screenURL.php?id=<?php echo $id; ?>">Screen URL</a>
+				</li>
+				</ul>
 			</div>
 		</div>
 		

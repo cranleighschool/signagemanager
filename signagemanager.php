@@ -65,6 +65,8 @@
 				</table>
 			</div>
 		</div>
+		<br />
+		<hr />
 	
 	<div class="screen_titles_wrapper">
 		<?php 
