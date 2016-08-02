@@ -132,7 +132,7 @@
 					Copy and Paste the URL below into a web browser to view the screen. This is the URL required for Planet eStream to schedule the Screen.
 				</b></h4>
 				<p>
-					https://signagemanager.cranleigh.org/previewscreen?screenName=<?php echo $id; ?>
+					https://signagemanager.cranleigh.org/previewscreen.php?screenName=<?php echo $id; ?>
 				</p>
 			</div>
 		</div>
