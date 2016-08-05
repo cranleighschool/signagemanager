@@ -1,10 +1,32 @@
 
+
+/* LOADING SCREEN*/
+
+body {
+	background-color: #0C223F;
+}
+#now_loading {
+	position: absolute;
+	width: 1920px;
+	height: 1080px;
+	display: flex;
+    /* Vertical align: */
+    align-items: center;
+    /* Horizontal align: */
+    justify-content: center;
+	transition: opacity 1s;
+}
+#now_loading h1 {
+	font-size: 90px;
+}
+/* END OF LOADING SCREEN*/
+
 /* SLIDE TEMPLATE - Default - Landscape */
 
 .main_photo_landscape_title {
 	position: absolute;
-	top: 20px;
-	left: 25px;
+	top: 15px;
+	left: 20px;
 }
 .main_photo_landscape_title h1 {
 	font-size: 120px;
@@ -29,7 +51,6 @@
 	width: 1870px;
 }
 /* END OF SLIDE TEMPLATE - Default - Landscape*/
-
 
 /* SLIDE TEMPLATE - Default - Portrait */
 

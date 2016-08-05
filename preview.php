@@ -29,7 +29,6 @@ h1, h2, h3, h4, p {
 body {
 	width: 1920px;
 	height: 1080px;
-	background-color: grey;
 	margin: 0;
 	padding: 0;
 }
@@ -57,6 +56,9 @@ $t++;
 </style>
 </head>
 <body onload="tjb_startfunction();">
+<div id="now_loading" class="now_loading" style="opacity: 1;">
+	<h1>LOADING SCREEN ...</h1>
+</div>
 
 <?php 
 
@@ -175,13 +177,21 @@ $date = date('Y-m-d H:i:s');
 	var currentSlide;
 	var currenSlideID;
 	var reserveId;
+	var spinCount = 0;
 	var slideCount = <?php echo $slideCount; ?>;
 	
 		function tjb_startfunction() {
 			setInterval(function(){
-				
+				spinCount = spinCount + 1;
+					if(spinCount >= 1) {
+						hide_loading();
+					}
 				tjb_hiding();
 		},<?php echo ($screenInfo[0]['slideDuration'] * 1000) ?>);
+	}
+	function hide_loading() {
+		document.getElementById('now_loading').style.opacity = "0";
+		console.log('Button Pressed');
 	}
 	
 	function tjb_hiding() {
@@ -198,6 +208,5 @@ $date = date('Y-m-d H:i:s');
 		}
 }
 </script>
-
 
 </html>
