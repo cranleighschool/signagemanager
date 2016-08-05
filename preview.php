@@ -1,6 +1,6 @@
 <?php
 	require_once('conn.php');
-	require_once('functions.php');	
+	require_once('display_functions.php');	
 ?><!DOCTYPE html>
 <html>
 <head>
