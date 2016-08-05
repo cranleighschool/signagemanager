@@ -4,6 +4,7 @@
 
 body {
 	background-color: #0C223F;
+	border: 1px solid red;
 }
 #now_loading {
 	position: absolute;
@@ -14,7 +15,10 @@ body {
     align-items: center;
     /* Horizontal align: */
     justify-content: center;
-	transition: opacity 1s;
+	transition: opacity 1s;		  
+
+    align-items: center;
+    justify-content: center;
 }
 #now_loading h1 {
 	font-size: 90px;
