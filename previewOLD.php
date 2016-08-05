@@ -59,6 +59,7 @@ $t++;
 <div id="now_loading" class="now_loading" style="opacity: 1;">
 	<img src="images/loading-GIF.gif" style="width: 1920px; height: 1080px;" />
 </div>
+BALLS
 <?php 
 
 	if($slideCount == 1) {
@@ -153,7 +154,7 @@ $t++;
 	</div>
 	
 	<div class="<?php echo $slides['template']; ?>_when" <?php fninputornot($is_when); ?>>
-		<h1 style="	color: #FFC627;">WHEN</h1>
+		<h1 style="	color: #FFC627;text-align: right; position: absolute; top: 0px; right: 0px;">WHEN</h1>
 		<h1><?php echo strtoupper($slides['theWhen']); ?></h1>
 	</div>
 	
