@@ -214,9 +214,9 @@ function fnslidesindate($PDO, $fntable, $fnqcol, $fnitem) {
 		}
 		function fninputornot($is_title) {
 			if($is_title == 'yes') {
-				echo 'required';
+				echo 'style="opacity: 1;"';
 			} else {
-				echo 'hidden';
+				echo 'style="opacity: 0;"';
 			}
 		}
 		function fncountOrder($PDO, $tableName) {

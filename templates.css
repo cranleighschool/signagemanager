@@ -9,17 +9,10 @@ body {
 	position: absolute;
 	width: 1920px;
 	height: 1080px;
-	display: flex;
-    /* Vertical align: */
-    align-items: center;
-    /* Horizontal align: */
-    justify-content: center;
 	transition: opacity 1s;		  
-
-    align-items: center;
-    justify-content: center;
 }
 #now_loading h1 {
+	position: absolute;
 	font-size: 90px;
 }
 /* END OF LOADING SCREEN*/

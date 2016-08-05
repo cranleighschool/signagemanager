@@ -57,7 +57,7 @@ $t++;
 </head>
 <body onload="tjb_startfunction();">
 <div id="now_loading" class="now_loading" style="opacity: 1;">
-	<h1>LOADING SCREEN ...</h1>
+	<img src="images/loading-GIF.gif" style="width: 1920px; height: 1080px;" />
 </div>
 
 <?php 
