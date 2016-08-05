@@ -47,6 +47,19 @@ function fnslidesindate($PDO, $fntable, $fnqcol, $fnitem) {
 					return $queryResult;
 			}
 		}
-
+function fncheckfortitle($check, $default) {
+	if(!isset($check)) {
+		return $default;
+	} else {
+		return $check;
+	}
+}
+		function fninputornot($is_title) {
+			if($is_title == 'yes') {
+				echo 'required';
+			} else {
+				echo 'hidden';
+			}
+		}
 
 ?>
