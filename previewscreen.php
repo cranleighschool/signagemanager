@@ -9,7 +9,7 @@
 	$screens = fnglobalquery($PDO, '*', 'screens', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
 
 if(!isset($_REQUEST['screenName'])) {
-	$screenid = 1;
+	// Return to error screen
 } else {
 	$screenid = $_REQUEST['screenName'];
 }
@@ -51,7 +51,7 @@ if(!empty($prevscreenArray)) {
 </div>
 	<div style="position: absolute; right: 10px; top: 5px;"><a href="#" data-toggle="tooltip" title="Slides on the preview change every 5 seconds"><i class="fa fa-question-circle fa-3x" aria-hidden="true" ></i></a></div>
 	
-	<iframe id="theframe" scrolling="no" src="previewFast.php?id=<?php echo $screenid; ?>"></iframe>
+	<iframe id="theframe" scrolling="no" src="previewFast.php?screenName=<?php echo $screenid; ?>"></iframe>
 
 	<div class="row">
 	

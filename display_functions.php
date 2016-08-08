@@ -54,7 +54,7 @@ function fncheckfortitle($check, $default) {
 		return $check;
 	}
 }
-		function fninputornot($is_title) {
+		function fntemplatehide($is_title) {
 			if($is_title == 'yes') {
 				echo 'style="opacity: 1;"';
 			} else {

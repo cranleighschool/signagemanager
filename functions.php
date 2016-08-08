@@ -118,7 +118,7 @@ function fnslidesindate($PDO, $fntable, $fnqcol, $fnitem) {
 						'why' => 'None Set',
 						'fontSize' => 80,
 						'lineHeight' => 80,
-						'background' => 'background.jpg',
+						'background' => 'bg1.jpg',
 					),
 					);
 					return $queryResult;
@@ -127,7 +127,6 @@ function fnslidesindate($PDO, $fntable, $fnqcol, $fnitem) {
 		
 	function fnnextorder($PDO, $fntable) {
 		$queryOrder = fnglobalquery($PDO, 'orderNumber', $fntable, 1, 1, 1, 1, 1, 1, 'orderNumber', 'DESC');
-		
 		$thequeryOrder = $queryOrder[0]['orderNumber'];
 		$currentOrder = $thequeryOrder + 1;
 		echo $currentOrder;
@@ -212,13 +211,21 @@ function fnslidesindate($PDO, $fntable, $fnqcol, $fnitem) {
 				echo 'display: none;';
 			}
 		}
-		function fninputornot($is_title) {
+		function fnforminputornot($is_title) {
+			if($is_title == 'yes') {
+				echo '';
+			} else {
+				echo 'hidden';
+			}
+		}
+				function fntemplatehide($is_title) {
 			if($is_title == 'yes') {
 				echo 'style="opacity: 1;"';
 			} else {
 				echo 'style="opacity: 0;"';
 			}
 		}
+		
 		function fncountOrder($PDO, $tableName) {
 								$sql = "SELECT orderNumber FROM $tableName ORDER BY orderNumber DESC";
 								$stmt = $PDO->query($sql);

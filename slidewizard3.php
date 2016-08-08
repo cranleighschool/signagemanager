@@ -72,7 +72,7 @@
 				<div class="col-sm-6">
 					<div class="form-group" style="<?php fnhideornot($is_title); ?>">
 					<label for="title">Title</label>
-					<input type="text" class="form-control" name="title" id="title" value="<?php echo $defaultTitle; ?>" <?php fninputornot($is_title); ?>/>
+					<input type="text" class="form-control" name="title" id="title" value="<?php echo $defaultTitle; ?>" <?php fnforminputornot($is_title); ?>/>
 					</div>
 				</div>
 				
@@ -103,7 +103,7 @@
 			</div>
 			<div class="form-group" style="<?php fnhideornot($is_message); ?>">
 			<label for="message">Message</label>
-			<textarea rows="5" class="form-control" name="message" id="message" value="" <?php fninputornot($is_message); ?>></textarea>
+			<textarea rows="5" class="form-control" name="message" id="message" value="" <?php fnforminputornot($is_message); ?>></textarea>
 			</div>
 			
 			<div class="row">
@@ -125,22 +125,22 @@
 			
 			<div class="form-group" style="<?php fnhideornot($is_where); ?>">
 			<label for="where">Where</label>
-			<input class="form-control" name="theWhere" id="theWhere" value="" <?php fninputornot($is_where); ?>>
+			<input class="form-control" name="theWhere" id="theWhere" value="" <?php fnforminputornot($is_where); ?>>
 			</div>
 			
 			<div class="form-group" style="<?php fnhideornot($is_when); ?>">
 			<label for="when">When</label>
-			<input class="form-control" name="theWhen" id="theWhen" value="" <?php fninputornot($is_when); ?>>
+			<input class="form-control" name="theWhen" id="theWhen" value="" <?php fnforminputornot($is_when); ?>>
 			</div>
 			
 			<div class="form-group" style="<?php fnhideornot($is_who); ?>">
 			<label for="who">Who</label>
-			<input class="form-control" name="theWho" id="theWho" value="" <?php fninputornot($is_who); ?>>
+			<input class="form-control" name="theWho" id="theWho" value="" <?php fnforminputornot($is_who); ?>>
 			</div>
 			
 			<div class="form-group" style="<?php fnhideornot($is_why); ?>">
 			<label for="why">Why</label>
-			<input class="form-control" name="theWhy" id="theWhy" value="" <?php fninputornot($is_why); ?>>
+			<input class="form-control" name="theWhy" id="theWhy" value="" <?php fnforminputornot($is_why); ?>>
 			</div>
 		</div>
 		

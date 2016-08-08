@@ -87,7 +87,7 @@
 					
 					<div class="row">
 						<div class="col-sm-6">
-							<div class="form-group" <?php fninputornot($is_title); ?>>
+							<div class="form-group" <?php fnforminputornot($is_title); ?>>
 								<label for="title">Title</label>
 								<input type="text" class="form-control" id="title" name="title" value="<?php echo fncheckfortitle($slides[0]['title'], $defaultTitle); ?>" required>
 							</div>
@@ -114,21 +114,21 @@
 				</div>
 					</div>
 					
-						<div class="form-group"  <?php fninputornot($is_message); ?>>
+						<div class="form-group"  <?php fnforminputornot($is_message); ?>>
 							<label for="message">Caption</label>
 							<textarea rows=6 class="form-control" id="message" name="message"><?php echo $slides[0]['message']; ?></textarea>
 						</div>
 						
 					<div class="row">
 						<div class="col-sm-6">
-							<div class="form-group" <?php fninputornot($is_message); ?>>
+							<div class="form-group" <?php fnforminputornot($is_message); ?>>
 								<label for="fontSize">Font Size</label>
 								<input type="range" min="40" max="140" class="form-control" id="fontSize" name="fontSize" value="<?php echo $slides[0]['fontSize']; ?>" required>
 								<output name="fontSizeOutname" id="fontSizeOutid"><?php echo $slides[0]['fontSize']; ?></output>
 							</div>
 						</div>
 						<div class="col-sm-6">	
-							<div class="form-group" <?php fninputornot($is_message); ?>>
+							<div class="form-group" <?php fnforminputornot($is_message); ?>>
 								<label for="lineHeight">Line Height</label>
 								<input type="range" min="40" max="140" class="form-control" id="lineHeight" name="lineHeight" value="<?php echo $slides[0]['lineHeight']; ?>" required>
 								<output name="lineHeightOutname" id="lineHeightOutid"><?php echo $slides[0]['lineHeight']; ?></output>
@@ -136,24 +136,24 @@
 						</div>
 					</div>
 					
-					<div class="form-group" style="<?php fnhideornot($is_where); ?>">
+					<div class="form-group" <?php fnforminputornot($is_where); ?>>
 					<label for="where">Where</label>
-					<input class="form-control" name="theWhere" id="theWhere" value="<?php echo $slides[0]['theWhere']; ?>" <?php fninputornot($is_where); ?>>
+					<input class="form-control" name="theWhere" id="theWhere" value="<?php echo $slides[0]['theWhere']; ?>">
 					</div>
 					
-					<div class="form-group" style="<?php fnhideornot($is_when); ?>">
+					<div class="form-group" <?php fnforminputornot($is_when); ?>>
 					<label for="when">When</label>
-					<input class="form-control" name="theWhen" id="theWhen" value="<?php echo $slides[0]['theWhen']; ?>" <?php fninputornot($is_when); ?>>
+					<input class="form-control" name="theWhen" id="theWhen" value="<?php echo $slides[0]['theWhen']; ?>">
 					</div>
 					
-					<div class="form-group" style="<?php fnhideornot($is_who); ?>">
+					<div class="form-group" <?php fnforminputornot($is_who); ?> >
 					<label for="who">Who</label>
-					<input class="form-control" name="theWho" id="theWho" value="<?php echo $slides[0]['theWho']; ?>" <?php fninputornot($is_who); ?>>
+					<input class="form-control" name="theWho" id="theWho" value="<?php echo $slides[0]['theWho']; ?>">
 					</div>
 					
-					<div class="form-group" style="<?php fnhideornot($is_why); ?>">
+					<div class="form-group" <?php fnforminputornot($is_why); ?>>
 					<label for="why">Why</label>
-					<input class="form-control" name="theWhy" id="theWhy" value="<?php echo $slides[0]['theWhy']; ?>" <?php fninputornot($is_why); ?>>
+					<input class="form-control" name="theWhy" id="theWhy" value="<?php echo $slides[0]['theWhy']; ?>">
 					</div>
 				</div>
 				
@@ -190,7 +190,7 @@
 						</div>
 					</div>	
 							
-					<div class="form-group" <?php fninputornot($is_background); ?>>
+					<div class="form-group" <?php fnforminputornot($is_background); ?>>
 						<label for="background">Background Image</label>
 						<input rows=3 class="form-control" id="background" name="background" value="<?php echo $slides[0]['background']; ?>">
 					</div>

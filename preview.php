@@ -87,27 +87,27 @@ $t++;
 		<div class="<?php echo $slides['template']; ?>_pic" style="background-image: url('images/slideimages/<?php echo $slides['picture']; ?>');">
 			
 		</div>
-		<div class="<?php echo $slides['template']; ?>_message" <?php fninputornot($is_message); ?>>
+		<div class="<?php echo $slides['template']; ?>_message" <?php fntemplatehide($is_message); ?>>
 			<h1 style="font-size: <?php echo $slides['fontSize']; ?>px; line-height: <?php echo $slides['lineHeight']; ?>px;" ><?php echo strtoupper($slides['message']); ?></h1>
 		</div>
 		
-		<div class="<?php echo $slides['template']; ?>_where" <?php fninputornot($is_where); ?>>
+		<div class="<?php echo $slides['template']; ?>_where" <?php fntemplatehide($is_where); ?>>
 			<h1 style="color: #FFC627; text-align: right; ">WHERE</h1>
 			<h1><?php echo strtoupper($slides['theWhere']); ?></h1>
 		</div>
 		
-		<div class="<?php echo $slides['template']; ?>_when" <?php fninputornot($is_when); ?>>
+		<div class="<?php echo $slides['template']; ?>_when" <?php fntemplatehide($is_when); ?>>
 			<h1 style="color: #FFC627;">WHEN</h1>
 			<h1><?php echo strtoupper($slides['theWhen']); ?>
 			</h1>
 		</div>
 		
-		<div class="<?php echo $slides['template']; ?>_who" <?php fninputornot($is_who); ?>>
+		<div class="<?php echo $slides['template']; ?>_who" <?php fntemplatehide($is_who); ?>>
 			<h1 style="color: #FFC627;">WHO</h1>
 			<h1><?php echo strtoupper($slides['theWho']); ?></h1>
 		</div>
 		
-		<div class="<?php echo $slides['template']; ?>_why" <?php fninputornot($is_why); ?>>
+		<div class="<?php echo $slides['template']; ?>_why" <?php fntemplatehide($is_why); ?>>
 			<h1 style="color: #FFC627;">WHY</h1>
 			<h1><?php echo strtoupper($slides['theWhy']); ?></h1>
 		</div>
@@ -143,26 +143,26 @@ $t++;
 	<div class="<?php echo $slides['template']; ?>_pic" style="background-image: url('images/slideimages/<?php echo $slides['picture']; ?>');">
 		
 	</div>
-	<div class="<?php echo $slides['template']; ?>_message" <?php fninputornot($is_message); ?>>
+	<div class="<?php echo $slides['template']; ?>_message" <?php fntemplatehide($is_message); ?>>
 		<h1 style="font-size: <?php echo $slides['fontSize']; ?>px; line-height: <?php echo $slides['lineHeight']; ?>px;" ><?php echo strtoupper($slides['message']); ?></h1>
 	</div>
 	
-	<div class="<?php echo $slides['template']; ?>_where" <?php fninputornot($is_where); ?>>
+	<div class="<?php echo $slides['template']; ?>_where" <?php fntemplatehide($is_where); ?>>
 		<h1 style="	color: #FFC627; text-align: right; ">WHERE</h1>
 		<h1><?php echo strtoupper($slides['theWhere']); ?></h1>
 	</div>
 	
-	<div class="<?php echo $slides['template']; ?>_when" <?php fninputornot($is_when); ?>>
+	<div class="<?php echo $slides['template']; ?>_when" <?php fntemplatehide($is_when); ?>>
 		<h1 style="	color: #FFC627;">WHEN</h1>
 		<h1><?php echo strtoupper($slides['theWhen']); ?></h1>
 	</div>
 	
-	<div class="<?php echo $slides['template']; ?>_who" <?php fninputornot($is_who); ?>>
+	<div class="<?php echo $slides['template']; ?>_who" <?php fntemplatehide($is_who); ?>>
 		<h1 style="	color: #FFC627;">WHO</h1>
 		<h1><?php echo strtoupper($slides['theWho']); ?></h1>
 	</div>
 	
-	<div class="<?php echo $slides['template']; ?>_why" <?php fninputornot($is_why); ?>>
+	<div class="<?php echo $slides['template']; ?>_why" <?php fntemplatehide($is_why); ?>>
 		<h1 style="	color: #FFC627;">WHY</h1>
 		<h1><?php echo strtoupper($slides['theWhy']); ?></h1>
 	</div>

@@ -1,6 +1,6 @@
 <?php
 	require_once('conn.php');
-	require_once('functions.php');	
+	require_once('display_functions.php');	
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -8,13 +8,13 @@
 <script src="js/jquery.boxfit.js" type="text/javascript"></script> -->
 	<link rel="stylesheet" href="templates.css" />
 <?php 
-if(!isset($_REQUEST['id'])) {
-	$screenid = 1;
+if(!isset($_REQUEST['screenName'])) {
+	// Redirect to error page
 } else {
-	$screenid = $_REQUEST['id'];
+	$screenName = $_REQUEST['screenName'];
 }
-$screenTable = 'screen' . $screenid;
-$screenInfo = fnglobalquery($PDO, '*', 'screens', 'id', $screenid, 1, 1, 1, 1, 'id', 'ASC');
+$screenTable = 'screen' . $screenName;
+$screenInfo = fnglobalquery($PDO, '*', 'screens', 'id', $screenName, 1, 1, 1, 1, 'id', 'ASC');
 $slides = fnslidesindate($PDO, $screenTable, 1, 1);
 $slideCount = count($slides);
 ?>
@@ -57,7 +57,7 @@ $t++;
 <body onload="tjb_startfunction();">
 
 <div id="now_loading" class="now_loading" style="opacity: 1;">
-	<h1>LOADING SCREEN ...</h1>
+	<img src="images/loading-GIF.gif" style="width: 1920px; height: 1080px;" />
 </div>
 
 <?php 
@@ -87,40 +87,30 @@ $t++;
 		<div class="<?php echo $slides['template']; ?>_pic" style="background-image: url('images/slideimages/<?php echo $slides['picture']; ?>');">
 			
 		</div>
-		<div class="<?php echo $slides['template']; ?>_message" <?php fninputornot($is_message); ?>>
+		<div class="<?php echo $slides['template']; ?>_message" <?php fntemplatehide($is_message); ?>>
 			<h1 style="font-size: <?php echo $slides['fontSize']; ?>px; line-height: <?php echo $slides['lineHeight']; ?>px;" ><?php echo strtoupper($slides['message']); ?></h1>
 		</div>
 		
-		<div class="<?php echo $slides['template']; ?>_where" <?php fninputornot($is_where); ?>>
+		<div class="<?php echo $slides['template']; ?>_where" <?php fntemplatehide($is_where); ?>>
 			<h1 style="	color: #FFC627; text-align: right; ">WHERE</h1>
 			<h1><?php echo strtoupper($slides['theWhere']); ?></h1>
 		</div>
 		
-		<div class="<?php echo $slides['template']; ?>_when" <?php fninputornot($is_when); ?>>
+		<div class="<?php echo $slides['template']; ?>_when" <?php fntemplatehide($is_when); ?>>
 			<h1 style="	color: #FFC627;text-align: right; position: absolute; top: 0px; right: 0px;">WHEN</h1>
 			<h1><?php echo strtoupper($slides['theWhen']); ?></h1>
 		</div>
 		
-		<div class="<?php echo $slides['template']; ?>_who" <?php fninputornot($is_who); ?>>
+		<div class="<?php echo $slides['template']; ?>_who" <?php fntemplatehide($is_who); ?>>
 			<h1 style="	color: #FFC627;">WHO</h1>
 			<h1><?php echo strtoupper($slides['theWho']); ?></h1>
 		</div>
 		
-		<div class="<?php echo $slides['template']; ?>_why" <?php fninputornot($is_why); ?>>
+		<div class="<?php echo $slides['template']; ?>_why" <?php fntemplatehide($is_why); ?>>
 			<h1 style="	color: #FFC627;">WHY</h1>
 			<h1><?php echo strtoupper($slides['theWhy']); ?></h1>
 		</div>
-	</div>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	</div>		
 		<?php
 	}
 	} else {
@@ -150,26 +140,26 @@ $t++;
 	<div class="<?php echo $slides['template']; ?>_pic" style="background-image: url('images/slideimages/<?php echo $slides['picture']; ?>');">
 		
 	</div>
-	<div class="<?php echo $slides['template']; ?>_message" <?php fninputornot($is_message); ?>>
+	<div class="<?php echo $slides['template']; ?>_message" <?php fntemplatehide($is_message); ?>>
 		<h1 style="font-size: <?php echo $slides['fontSize']; ?>px; line-height: <?php echo $slides['lineHeight']; ?>px;" ><?php echo strtoupper($slides['message']); ?></h1>
 	</div>
 	
-	<div class="<?php echo $slides['template']; ?>_where" <?php fninputornot($is_where); ?>>
+	<div class="<?php echo $slides['template']; ?>_where" <?php fntemplatehide($is_where); ?>>
 		<h1 style="	color: #FFC627; text-align: right; ">WHERE</h1>
 		<h1><?php echo strtoupper($slides['theWhere']); ?></h1>
 	</div>
 	
-	<div class="<?php echo $slides['template']; ?>_when" <?php fninputornot($is_when); ?>>
+	<div class="<?php echo $slides['template']; ?>_when" <?php fntemplatehide($is_when); ?>>
 		<h1 style="	color: #FFC627;text-align: right; position: absolute; top: 0px; right: 0px;">WHEN</h1>
 		<h1><?php echo strtoupper($slides['theWhen']); ?></h1>
 	</div>
 	
-	<div class="<?php echo $slides['template']; ?>_who" <?php fninputornot($is_who); ?>>
+	<div class="<?php echo $slides['template']; ?>_who" <?php fntemplatehide($is_who); ?>>
 		<h1 style="	color: #FFC627;">WHO</h1>
 		<h1><?php echo strtoupper($slides['theWho']); ?></h1>
 	</div>
 	
-	<div class="<?php echo $slides['template']; ?>_why" <?php fninputornot($is_why); ?>>
+	<div class="<?php echo $slides['template']; ?>_why" <?php fntemplatehide($is_why); ?>>
 		<h1 style="	color: #FFC627;">WHY</h1>
 		<h1><?php echo strtoupper($slides['theWhy']); ?></h1>
 	</div>
@@ -183,11 +173,8 @@ $t++;
 ?>
 
 <?php 
-#echo 'slide count is...';
-#echo $slideCount; 
 date_default_timezone_set('Europe/London');
 $date = date('Y-m-d H:i:s');
-#echo $date;
 ?>
 
 </body>

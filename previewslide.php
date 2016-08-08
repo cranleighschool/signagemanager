@@ -11,7 +11,7 @@
 	
 	
 if(!isset($_REQUEST['screenName'])) {
-	$screenid = 1;
+	// Return an Error Screen
 } else {
 	$screenid = $_REQUEST['screenName'];
 }

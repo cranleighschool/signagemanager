@@ -46,7 +46,7 @@
 				
 				<div class="form-group">
 					<label for="defaultBackground">Default Background</label>
-					<input type="text" class="form-control" id="defaultBackground" name="defaultBackground" value="background.jpg"/>
+					<input type="text" class="form-control" id="defaultBackground" name="defaultBackground" value="bg1.jpg"/>
 				</div>
 				
 				<div class="form-group">
