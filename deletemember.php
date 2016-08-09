@@ -28,5 +28,5 @@ fnaddtolog($PDO, $action, $userName, $date);
 /* END OF LOG INFO */
 
 
-header("Location: permissions.php?id=" . $currentGroup);
+header("Location: permissions.php?groupid=" . $currentGroup);
 ?>

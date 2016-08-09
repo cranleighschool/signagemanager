@@ -41,7 +41,7 @@
 				<?php
 				} else {
 				?>
-					<option value="<?php echo $group['id']; ?>"><?php echo $group['groupName']; ?></option>
+					<option value="<?php echo $group['id']; ?>"><?php echo strtoupper($group['groupName']); ?></option>
 				<?php
 					}		
 				}
