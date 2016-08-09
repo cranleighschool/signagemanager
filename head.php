@@ -10,7 +10,13 @@
 	<link rel="stylesheet" href="cranfont/style.css" />	
 	<link rel="stylesheet" href="style.css" />
 	
-	<?php $screens = fnscreens($PDO, $_SESSION['user']['username'], 'testteacher'); ?>
+	<?php // $screens = fnscreens($PDO, $_SESSION['user']['username'], 'testteacher'); ?>
+	<?php $screens = fnnewscreens($PDO, $_SESSION['user']['username']); ?>
+	
+	
+	
+	
+	
 	<!-- TEST TEACHER IS SET AS THE ADMIN ACCOUNT ABOVE -->
 	<!-- Navigation -->
    <nav class="navbar navbar-default navbar-fixed-top" style="border-bottom: 1px solid #0C223F;">
@@ -60,6 +66,7 @@
 					<li class="dropdown <?php fnactivepage2('about.php'); fnactivepage2('userguide.php'); fnactivepage2('requestfeature.php'); fnactivepage2('log.php'); ?>">
 						<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Support<span class="caret"></span></a>
 							<ul class="dropdown-menu">
+								<li><a href="permissions.php">Access / Permissions</a></li>
 								<li><a href="about.php">About</a></li>
 								<li><a href="userguide.php">User Guide</a></li>
 								<li><a href="https://help.cranleigh.org">Submit Ticket</a></li>
@@ -79,3 +86,5 @@
 			</div><!--/.nav-collapse -->
 		</div>
 	</nav>
+
+ ?>

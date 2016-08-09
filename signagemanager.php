@@ -33,12 +33,14 @@
 		<h1>Current Screens</h1>
 	</div>
 	
+
+	
+	
 	<div class="screen_table">
 			<div class="table-responsive screen_table">
 				<table class="table text-center table-striped table-hover">
 					<tr>
 						<th class="text-center">Screen Name</th>
-						<th class="text-center">Owner</th>
 						<th class="text-center">Default Title</th>
 						<th class="text-center">Slide Duration</th>
 						<th class="text-center">Active Slides</th>
@@ -52,7 +54,6 @@
 							$screenName = 'screen' . $row['id'];
 							?>
 							<td><?php echo $row['screenName']; ?></td>
-							<td><?php echo strtoupper($row['owner']); ?></td>
 							<td><?php echo $row['defaultTitle']; ?></td>
 							<td><?php echo $row['slideDuration']; ?>s</td>
 							<td><?php echo fncountactiveslides($PDO, $screenName); ?></td>

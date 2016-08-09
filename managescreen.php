@@ -21,6 +21,7 @@
 	$templates = fnglobalquery($PDO, '*', 'templates', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
 	$Tname = $screen[0]['defaultTemplate'];
 	$templateName = fnglobalquery($PDO, 'name', 'templates', 'className', $Tname, 1, 1, 1, 1, 'id', 'ASC');
+	$groups = fnglobalquery($PDO, '*', 'groups', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
 	
 	
 ?>
@@ -36,7 +37,7 @@
 		</div>
 	
 		<div class="addnew">
-			<a href="#">Add New Slide</a>
+			<a href="slidewizard1.php?screenName=<?php echo $id; ?>">Add New Slide</a>
 		</div>
 	
 		<div class="table-responsive">
@@ -134,6 +135,42 @@
 				<p>
 					https://signagemanager.cranleigh.org/previewscreen.php?screenName=<?php echo $id; ?>
 				</p>
+			</div>
+		</div>
+		
+		<hr />
+		
+		<div class="row">
+			<div class="col-md-12">
+			
+			<h2>Assign Group with Permission to Edit Screen:</h2>
+			
+			<form name="updatepermissions" action="updatescreenpermission.php?screenName=<?php echo $id; ?>" method="post" >
+			<div class="form-group">
+			
+			<input type="text" value="<?php echo $id; ?>" name="screenName" id="screenName" hidden>
+			
+			<label for="groupSel">Select Group</label>
+				<select type="text" class="form-control" id="owner" name="owner" onchange="this.form.submit()">
+					
+					<?php
+						foreach($groups as $group) {
+							
+							if($group['id'] == $screen[0]['owner']) {
+								?>
+								<option value="<?php echo $group['id']; ?>" selected="selected"><?php echo $group['groupName']; ?></option>
+								<?php
+							} else {
+								?>
+								<option value="<?php echo $group['id']; ?>"><?php echo $group['groupName']; ?></option>
+								<?php
+							}
+						}
+					?>
+				
+				</select>
+			</form>		
+				
 			</div>
 		</div>
 	</div>

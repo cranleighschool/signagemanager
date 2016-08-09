@@ -24,6 +24,35 @@ function fnlogout() {
 function fnlogin() {
 	$login = new Login($_POST['username'], $_POST['p']);
 }
+
+
+function fnnewscreens($PDO, $username) {
+	$accessArray = fnglobalquery($PDO, 'groupID', 'permissions', 'username', $username, 1,1,1,1, 'groupID', 'ASC');
+	$editedArray = [];
+	foreach ($accessArray as $access) {
+		$editedArray[] = $access['groupID'];
+	}
+
+	$admingroup = 1;
+	if(in_array($admingroup, $editedArray)) {
+		$stmt = $PDO->prepare("SELECT * FROM screens");
+	} else {
+	$newEdited = implode(',', $editedArray);		
+	$stmt = $PDO->prepare("SELECT * FROM screens WHERE owner IN ($newEdited)");
+	}
+	
+	try {
+		$stmt->execute();
+	}catch(PDOException $e){
+		print 'Error!: Failed' . $e->getMessage();
+		die();
+	}	
+	$queryResult = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	return $queryResult;
+}
+
+
+
 function fnscreens($PDO, $username, $adminName) {
 		$username = strtoupper($username);
 		$adminName = strtoupper($adminName);
