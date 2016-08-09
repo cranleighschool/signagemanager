@@ -5,6 +5,7 @@ include('functions.php');
 
 $id = $_REQUEST['id'];
 $theMember = $_REQUEST['member'];
+$currentGroup = $_REQUEST['currentGroup'];
 
 $stmt = $PDO->prepare("DELETE FROM permissions WHERE id=:id");
 
@@ -27,5 +28,5 @@ fnaddtolog($PDO, $action, $userName, $date);
 /* END OF LOG INFO */
 
 
-header("Location: permissions.php");
+header("Location: permissions.php?id=" . $currentGroup);
 ?>

@@ -37,7 +37,7 @@
 			<?php foreach($groups as $group) {
 				if($startGroup == $group['id']) {
 					?>
-					<option value="<?php echo $group['id']; ?>" selected="selected"><?php echo $group['groupName']; ?></option>
+					<option value="<?php echo $group['id']; ?>" selected="selected"><?php echo strtoupper($group['groupName']); ?></option>
 				<?php
 				} else {
 				?>
@@ -64,7 +64,7 @@
 					?>
 				</tr>
 					<td><?php echo strtoupper($row['username']); ?></td>
-					<td><a href="deletemember.php?id=<?php echo $row['id']; ?>&member=<?php echo $row['username']; ?>" onclick="return confirm('Are you sure you want to delete this Group Member?')"><i class="fa fa-trash-o"></i></a></td>
+					<td><a href="deletemember.php?id=<?php echo $row['id']; ?>&member=<?php echo $row['username']; ?>&currentGroup=<?php echo $startGroup; ?>" onclick="return confirm('Are you sure you want to delete this Group Member?')"><i class="fa fa-trash-o"></i></a></td>
 				</tr>
 				<?php
 					}
