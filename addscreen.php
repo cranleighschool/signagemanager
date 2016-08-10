@@ -26,13 +26,13 @@
 			
 				<div class="form-group">
 					<label for="screenName">Screen Name</label>
-					<input type="text" class="form-control" id="screenName" name="screenName"/>
+					<input type="text" class="form-control" id="screenName" name="screenName"  maxlength="20"/>
 					<input type="hidden" class="form-control" id="owner" name="owner" value="<?php echo strtoupper($_SESSION['user']['username']); ?>"/>
 				</div>
 				
 				<div class="form-group">
 					<label for="slideDuration">Slide Duration (Seconds)</label>
-					<input type="text" class="form-control" id="slideDuration" name="slideDuration" value="15"/>
+					<input type="text" class="form-control" id="slideDuration" name="slideDuration" value="10"/>
 				</div>
 			<br />
 				<button style="margin-top: 3px;" type="submit" class="btn">Update</button>
@@ -41,7 +41,7 @@
 			<div class="col-sm-6">
 				<div class="form-group">
 					<label for="defaultTitle">Default Title</label>
-					<input type="text" class="form-control" id="defaultTitle" name="defaultTitle"/>
+					<input type="text" class="form-control" id="defaultTitle" name="defaultTitle" maxlength="100"/>
 				</div>
 				
 				<div class="form-group">
@@ -54,7 +54,7 @@
 					<select type="text" class="form-control" id="defaultTemplate" name="defaultTemplate">
 						<?php foreach($templates as $templatelist) {
 						?>
-						<option value="<?php echo $templatelist['className']; ?>"><?php echo $templatelist['name']; ?></option>
+						<option value="<?php echo htmlspecialchars($templatelist['className'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($templatelist['name'], ENT_QUOTES); ?></option>
 						<?php
 						} ?>
 					</select>

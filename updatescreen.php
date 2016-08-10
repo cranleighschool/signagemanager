@@ -4,12 +4,12 @@
 ?><!DocType HTML>
 <?php
 
-$id = $_POST['id'];
-$screenName = $_POST['screenName'];
-$slideDuration = $_POST['slideDuration'];
-$defaultTitle = $_POST['defaultTitle'];
-$defaultBackground = $_POST['defaultBackground'];
-$defaultTemplate = $_POST['defaultTemplate'];
+$id = htmlspecialchars_decode($_POST['id'], ENT_QUOTES);
+$screenName = htmlspecialchars_decode($_POST['screenName'], ENT_QUOTES);
+$slideDuration = htmlspecialchars_decode($_POST['slideDuration'], ENT_QUOTES);
+$defaultTitle = htmlspecialchars_decode($_POST['defaultTitle'], ENT_QUOTES);
+$defaultBackground = htmlspecialchars_decode($_POST['defaultBackground'], ENT_QUOTES);
+$defaultTemplate = htmlspecialchars_decode($_POST['defaultTemplate'], ENT_QUOTES);
 
 $stmt = $PDO->prepare("UPDATE screens SET id=:id, screenName=:screenName, slideDuration=:slideDuration, defaultTitle=:defaultTitle, defaultBackground=:defaultBackground, defaultTemplate=:defaultTemplate WHERE id=$id");
 
@@ -37,5 +37,5 @@ $userName = strtoupper($_SESSION['user']['username']);
 fnaddtolog($PDO, $action, $userName, $date);
 /* END OF LOG INFO */
 
-header("Location:signagemanager.php")
+header("Location:index.php")
 ?>

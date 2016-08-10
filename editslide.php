@@ -59,11 +59,11 @@
 			if($slides[0]['template'] == $templaterows['className']) {
 
 				?>
-					<option value="<?php echo $slides[0]['template']; ?>" selected="selected"><?php echo $templateName[0]['name']; ?></option>
+					<option value="<?php echo htmlspecialchars($slides[0]['template'], ENT_QUOTES); ?>" selected="selected"><?php echo htmlspecialchars($templateName[0]['name'], ENT_QUOTES); ?></option>
 				<?php
 			} else {
 				?>
-				<option value="<?php echo $templaterows['className']; ?>"><?php echo $templaterows['name']; ?></option>
+				<option value="<?php echo htmlspecialchars($templaterows['className'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($templaterows['name'], ENT_QUOTES); ?></option>
 			<?php
 			}
 
@@ -71,31 +71,31 @@
 				?>
 			</select>
 			<div class="form-group">
-				<input type="hidden" value="<?php echo $screenName; ?>" id="screenid" name="screenid">
-				<input type="hidden" value="<?php echo $id; ?>" id="id" name="id">
+				<input type="hidden" value="<?php echo htmlspecialchars($screenName, ENT_QUOTES); ?>" id="screenid" name="screenid">
+				<input type="hidden" value="<?php echo htmlspecialchars($id, ENT_QUOTES); ?>" id="id" name="id">
 			</div>
 		</form>
 		
-		<form name="editscreenform" action="updateslidepreview.php?screenName=<?php echo $screenName; ?>" method="post">
+		<form name="editscreenform" action="updateslidepreview.php?screenName=<?php echo htmlspecialchars($screenName, ENT_QUOTES); ?>" method="post">
 			
 			
 			
 					<div class="form-group">
-						<input type="hidden" value="<?php echo $tableName; ?>" id="screenTable" name="screenTable">
-						<input type="hidden" value="<?php echo $id; ?>" id="id" name="id">
+						<input type="hidden" value="<?php echo htmlspecialchars($tableName, ENT_QUOTES); ?>" id="screenTable" name="screenTable">
+						<input type="hidden" value="<?php echo htmlspecialchars($id, ENT_QUOTES); ?>" id="id" name="id">
 					</div>
 					
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group" <?php fnforminputornot($is_title); ?>>
 								<label for="title">Title</label>
-								<input type="text" class="form-control" id="title" name="title" value="<?php echo fncheckfortitle($slides[0]['title'], $defaultTitle); ?>" required>
+								<input type="text" class="form-control" id="title" name="title" value="<?php echo htmlspecialchars(fncheckfortitle($slides[0]['title'], $defaultTitle), ENT_QUOTES); ?>" required>
 							</div>
 						</div>
 						<div class="col-sm-6">
 					<div class="form-group">
 						<label for="orderNumber">Order</label>
-						<select type="text" class="form-control" id="orderNumber" name="orderNumber" value="<?php echo $slides[0]['orderNumber']; ?>" required>								
+						<select type="text" class="form-control" id="orderNumber" name="orderNumber" value="<?php echo htmlspecialchars($slides[0]['orderNumber'], ENT_QUOTES); ?>" required>								
 							
 							<?php 
 							
@@ -116,7 +116,7 @@
 					
 						<div class="form-group"  <?php fnforminputornot($is_message); ?>>
 							<label for="message">Caption</label>
-							<textarea rows=6 class="form-control" id="message" name="message"><?php echo $slides[0]['message']; ?></textarea>
+							<textarea rows=6 class="form-control" id="message" name="message"><?php echo htmlspecialchars($slides[0]['message'], ENT_QUOTES); ?></textarea>
 						</div>
 						
 					<div class="row">
@@ -138,22 +138,22 @@
 					
 					<div class="form-group" <?php fnforminputornot($is_where); ?>>
 					<label for="where">Where</label>
-					<input class="form-control" name="theWhere" id="theWhere" value="<?php echo $slides[0]['theWhere']; ?>">
+					<input class="form-control" name="theWhere" id="theWhere" value="<?php echo htmlspecialchars($slides[0]['theWhere'], ENT_QUOTES); ?>">
 					</div>
 					
 					<div class="form-group" <?php fnforminputornot($is_when); ?>>
 					<label for="when">When</label>
-					<input class="form-control" name="theWhen" id="theWhen" value="<?php echo $slides[0]['theWhen']; ?>">
+					<input class="form-control" name="theWhen" id="theWhen" value="<?php echo htmlspecialchars($slides[0]['theWhen'], ENT_QUOTES); ?>">
 					</div>
 					
 					<div class="form-group" <?php fnforminputornot($is_who); ?> >
 					<label for="who">Who</label>
-					<input class="form-control" name="theWho" id="theWho" value="<?php echo $slides[0]['theWho']; ?>">
+					<input class="form-control" name="theWho" id="theWho" value="<?php echo htmlspecialchars($slides[0]['theWho'], ENT_QUOTES); ?>">
 					</div>
 					
 					<div class="form-group" <?php fnforminputornot($is_why); ?>>
 					<label for="why">Why</label>
-					<input class="form-control" name="theWhy" id="theWhy" value="<?php echo $slides[0]['theWhy']; ?>">
+					<input class="form-control" name="theWhy" id="theWhy" value="<?php echo htmlspecialchars($slides[0]['theWhy'], ENT_QUOTES); ?>">
 					</div>
 				</div>
 				
@@ -162,11 +162,11 @@
 					<div class="form-group">
 						<label for="department">Picture</label>
 						<select style="color: black;"  type="text" class="form-control" id="picture" name="picture" required>	
-							<option value="<?php echo $slides[0]['picture']; ?>"><?php echo $slides[0]['picture']; ?></option>
+							<option value="<?php echo htmlspecialchars($slides[0]['picture'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($slides[0]['picture'], ENT_QUOTES); ?></option>
 						<?php foreach($galleryImages as $imageOptions) {
 							?>
 							
-							<option value="<?php echo $imageOptions['fileName']; ?>"><?php echo $imageOptions['fileName']; ?></option>
+							<option value="<?php echo htmlspecialchars($imageOptions['fileName'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($imageOptions['fileName'], ENT_QUOTES); ?></option>
 							
 							<?php
 						}
@@ -192,7 +192,7 @@
 							
 					<div class="form-group" <?php fnforminputornot($is_background); ?>>
 						<label for="background">Background Image</label>
-						<input rows=3 class="form-control" id="background" name="background" value="<?php echo $slides[0]['background']; ?>">
+						<input rows=3 class="form-control" id="background" name="background" value="<?php echo htmlspecialchars($slides[0]['background'], ENT_QUOTES); ?>">
 					</div>
 					
 					

@@ -1,12 +1,15 @@
 <?php
 	require_once('conn.php');
 	require_once('functions.php');
+
 ?><!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="./jquery.datetimepicker.css"/>
 <?php 
 	include('head.php');
+
+	fnadminreq($PDO, $_SESSION['user']['username'], $isadmin);
 	$groups = fnglobalquery($PDO, '*', 'groups', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
 	
 	if(!isset($_REQUEST['groupid'])) {

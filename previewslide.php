@@ -73,13 +73,13 @@ if(!empty($prevslideArray)) {
 						
 				<ul class="nav navbar-nav">
 					<li><a href="#menu-toggle" id="menu-toggle" onClick="setPadding()"><i class="fa fa-bars"></i></a></li>
-					<li><a  href="signagemanager.php">Home</a></li>				
+					<li><a  href="index.php">Home</a></li>				
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage Screen<span class="caret"></span></a>
 							<ul class="dropdown-menu">	
 								<?php foreach($screens as $navscreens) {
 									?>
-									<li><a href="screenmanager.php?id=<?php echo $navscreens['id']; ?>"><?php echo $navscreens['screenName']; ?></a></li>
+									<li><a href="screenmanager.php?id=<?php echo htmlspecialchars($navscreens['id'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($navscreens['screenName'], ENT_QUOTES); ?></a></li>
 									
 									<?php
 								} ?>
@@ -92,7 +92,7 @@ if(!empty($prevslideArray)) {
 							<ul class="dropdown-menu">
 								<?php foreach($screens as $navscreens) {
 									?>
-									<li><a href="previewscreen.php?screenName=<?php echo $navscreens['id']; ?>"><?php echo $navscreens['screenName']; ?></a></li>
+									<li><a href="previewscreen.php?screenName=<?php echo htmlspecialchars($navscreens['id'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($navscreens['screenName'], ENT_QUOTES); ?></a></li>
 									
 									<?php
 								} ?>
@@ -132,16 +132,16 @@ if(!empty($prevslideArray)) {
 </div>
 
 <div class="iframe-wrap">
-	<iframe id="theframe" scrolling="no" src="previewslideview.php?id=<?php echo $id; ?>&screenName=<?php echo $screenid; ?>" ></iframe>
+	<iframe id="theframe" scrolling="no" src="previewslideview.php?id=<?php echo htmlspecialchars($id, ENT_QUOTES); ?>&screenName=<?php echo htmlspecialchars($screenid, ENT_QUOTES); ?>" ></iframe>
 </div>
 
 <div class="row">
 		<div class="preview-controls">
 		<ul class="list-unstyled list-inline text-center">
-		<li><a href="slidewizard1.php?screenName=<?php echo $screenid; ?>">Add  New Slide</a></li>
-		<li><a href="editslide.php?id=<?php echo $id; ?>&screenName=<?php echo $screenid; ?>">Edit Current Slide</a></li>
-		<li><a href="screenmanager.php?id=<?php echo $screenid; ?>">Manage Screen</a></li>
-		<li><a href="previewscreen.php?screenName=<?php echo $screenid; ?>">Preview Screen</a></li>
+		<li><a href="slidewizard1.php?screenName=<?php echo htmlspecialchars($screenid, ENT_QUOTES); ?>">Add  New Slide</a></li>
+		<li><a href="editslide.php?id=<?php echo htmlspecialchars($id, ENT_QUOTES); ?>&screenName=<?php echo htmlspecialchars($screenid, ENT_QUOTES); ?>">Edit Current Slide</a></li>
+		<li><a href="screenmanager.php?id=<?php echo htmlspecialchars($screenid, ENT_QUOTES); ?>">Manage Screen</a></li>
+		<li><a href="previewscreen.php?screenName=<?php echo htmlspecialchars($screenid, ENT_QUOTES); ?>">Preview Screen</a></li>
 		</ul>
 		
 	</div>
@@ -149,10 +149,10 @@ if(!empty($prevslideArray)) {
 	
 	
 	<div class="nextSlide">
-		<a href="previewslide.php?id=<?php echo $nextSlide; ?>&screenName=<?php echo $screenid; ?>">Next Slide</a>
+		<a href="previewslide.php?id=<?php echo $nextSlide; ?>&screenName=<?php echo htmlspecialchars($screenid, ENT_QUOTES); ?>">Next Slide</a>
 	</div>
 	<div class="prevSlide">
-		<a href="previewslide.php?id=<?php echo $prevSlide; ?>&screenName=<?php echo $screenid; ?>">Prev Slide</a>
+		<a href="previewslide.php?id=<?php echo $prevSlide; ?>&screenName=<?php echo htmlspecialchars($screenid, ENT_QUOTES); ?>">Prev Slide</a>
 	</div>
 </div>
 	

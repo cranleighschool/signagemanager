@@ -48,10 +48,10 @@
 		?>
 		<div class="col-sm-3 gallery-tile-wrap" >
 			<div class="gallery-tile">
-				<img src="images/slideimages/<?php echo $imageTiles['fileName']; ?>" class="img-responsive center-block" style="max-height: 200px;"/>
+				<img src="images/slideimages/<?php echo htmlspecialchars($imageTiles['fileName'], ENT_QUOTES); ?>" class="img-responsive center-block" style="max-height: 200px;"/>
 				<div class="gallery_image_controls" style="position: relative;">
-					<div class="imageTitle">Image Name - <?php echo $imageTiles['fileName']; ?></div>
-					<div class="dateStamp">Uploaded - <?php echo $imageTiles['dateStamp']; ?></div>
+					<div class="imageTitle">Image Name - <?php echo htmlspecialchars($imageTiles['fileName'], ENT_QUOTES); ?></div>
+					<div class="dateStamp">Uploaded - <?php echo htmlspecialchars($imageTiles['dateStamp'], ENT_QUOTES); ?></div>
 					<div class="view_image col-sm-6"><a target="_blank" data-toggle="tooltip" title="Preview Image" href="previewimage.php?id=<?php echo $imageTiles['id']; ?>"><i class="fa fa-play-circle-o fa-2x" ></i></a></div>
 					<div class="delete_image col-sm-6">
 					<?php fngallerydeletecheck($PDO, $imageTiles['fileName'], $imageTiles['id']); ?><i class="fa fa fa-trash-o fa-2x"></i></a></div>
@@ -78,7 +78,7 @@
 		if(file && file.size < 1000000) { // 1 MB (this size is in bytes)
 			//Submit form        
 		} else {
-			alert("Haha - You think you can slow down our servers with massive images. Not this time. See the user guides on how to resize images");
+			alert("I'm afraid that image is a bit too big for Digital Signage, it will make it load very slowly. See the user guides on how to resize images (Click Support > User Guides");
 			//Prevent default and display error
 			evt.preventDefault();
 		}

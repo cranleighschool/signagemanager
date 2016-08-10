@@ -2,12 +2,12 @@
 include "conn.php";
 include "functions.php";
 
-$screenName = $_POST['screenName'];
-$owner = $_POST['owner'];
-$slideDuration = $_POST['slideDuration'];
-$defaultTitle = $_POST['defaultTitle'];
-$defaultBackground = $_POST['defaultBackground'];
-$defaultTemplate = $_POST['defaultTemplate'];
+$screenName = htmlspecialchars_decode($_POST['screenName'], ENT_QUOTES);;
+$owner = htmlspecialchars_decode($_POST['owner'], ENT_QUOTES);;
+$slideDuration = htmlspecialchars_decode($_POST['slideDuration'], ENT_QUOTES);;
+$defaultTitle = htmlspecialchars_decode($_POST['defaultTitle'], ENT_QUOTES);;
+$defaultBackground = htmlspecialchars_decode($_POST['defaultBackground'], ENT_QUOTES);;
+$defaultTemplate = htmlspecialchars_decode($_POST['defaultTemplate'], ENT_QUOTES);;
 
 $stmt = $PDO->prepare("INSERT INTO screens (screenName, owner, slideDuration, defaultTitle, defaultBackground, defaultTemplate) VALUES (:screenName, :owner, :slideDuration, :defaultTitle, :defaultBackground, :defaultTemplate)");
 

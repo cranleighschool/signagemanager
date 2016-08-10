@@ -64,15 +64,15 @@
 	<form name="slidewizardform" id="slidewizardform" action="insertslide.php" method="post">
 	
 		<div class="col-sm-6">
-			<input type="hidden" value="<?php echo $screenid; ?>" id="screenid" name="screenid">
-			<input type="hidden" value="<?php echo $daTemplate; ?>" id="template" name="template">
+			<input type="hidden" value="<?php echo htmlspecialchars($screenid, ENT_QUOTES); ?>" id="screenid" name="screenid">
+			<input type="hidden" value="<?php echo htmlspecialchars($daTemplate, ENT_QUOTES); ?>" id="template" name="template">
 			<input type="hidden" value="<?php echo strtoupper($_SESSION['user']['username']); ?>" id="username" name="username">
 			
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="form-group" style="<?php fnhideornot($is_title); ?>">
 					<label for="title">Title</label>
-					<input type="text" class="form-control" name="title" id="title" value="<?php echo $defaultTitle; ?>" <?php fnforminputornot($is_title); ?>/>
+					<input type="text" class="form-control" name="title" id="title" value="<?php echo htmlspecialchars($defaultTitle, ENT_QUOTES); ?>" <?php fnforminputornot($is_title); ?>/>
 					</div>
 				</div>
 				
@@ -110,14 +110,14 @@
 						<div class="col-sm-6">
 							<div class="form-group" style="<?php fnhideornot($is_message); ?>">
 								<label for="fontSize">Font Size</label>
-								<input type="range" min="40" max="140" class="form-control" id="fontSize" name="fontSize" value="80" required>
+								<input type="range" min="40" max="140" step="5" class="form-control" id="fontSize" name="fontSize" value="80" required>
 								<output name="fontSizeOutname" id="fontSizeOutid">80</output>
 							</div>
 						</div>
 						<div class="col-sm-6">	
 							<div class="form-group" style="<?php fnhideornot($is_message); ?>">
 								<label for="lineHeight">Line Height</label>
-								<input type="range" min="40" max="140" class="form-control" id="lineHeight" name="lineHeight" value="80" required>
+								<input type="range" min="40" max="140" step="5" class="form-control" id="lineHeight" name="lineHeight" value="80" required>
 								<output name="lineHeightOutname" id="lineHeightOutid">80</output>
 							</div>
 						</div>
@@ -149,11 +149,11 @@
 			<div class="form-group" style="color: black;" >
 				<label for="department">Picture</label>
 				<select style="color: black;"  type="text" class="form-control" id="picture" name="picture" required>
-					<option value="<?php echo $imageSelected; ?>"><?php echo $imageSelected; ?></option>
+					<option value="<?php echo htmlspecialchars($imageSelected, ENT_QUOTES); ?>"><?php echo htmlspecialchars($imageSelected, ENT_QUOTES); ?></option>
 					<?php foreach($galleryImages as $imageOptions) {
 						?>
 						
-						<option value="<?php echo $imageOptions['fileName']; ?>"><?php echo $imageOptions['fileName']; ?></option>
+						<option value="<?php echo htmlspecialchars($imageOptions['fileName'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($imageOptions['fileName'], ENT_QUOTES); ?></option>
 						
 						<?php
 					}
@@ -178,7 +178,7 @@
 			
 			<div class="form-group">
 				<label for="background">Background Image</label>
-				<input class="form-control" id="background" name="background" value="<?php echo $screen[0]['defaultBackground']; ?>">
+				<input class="form-control" id="background" name="background" value="<?php echo htmlspecialchars($screen[0]['defaultBackground'], ENT_QUOTES); ?>">
 			</div>
 			
 						

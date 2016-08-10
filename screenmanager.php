@@ -58,14 +58,14 @@
 						?>
 						<td class="text-center"><i class="fa fa-circle" <?php $sD = $row['startDate']; $eD = $row['endDate']; fncheckslideActive($PDO, $sD, $eD, $tableName); ?> ></i></td	>
 						<td><?php echo $row['orderNumber']; ?></td>
-						<td><?php echo fncheckfortitle($row['title'], $defaultTitle); ?></td>
-						<td><?php echo $row['picture']; ?></td>
-						<td><?php echo $row['message']; ?></td>
-						<td><?php echo $row['startDate']; ?></td>
-						<td><?php echo $row['endDate']; ?></td>
-						<td><a href="editslide.php?id=<?php echo $row['id']; ?>&screenName=<?php echo $id; ?>"><i class="fa fa-pencil-square-o"></i></a></td>
-						<td><a href="previewslide.php?id=<?php echo $row['id']; ?>&screenName=<?php echo $id; ?>"><i class="fa fa-play-circle-o"></i></a></td>
-						<td><a href="deleteslide.php?id=<?php echo $row['id']; ?>&screenName=<?php echo $id; ?>"><i class="fa fa-trash-o"></i></a></td>
+						<td><?php echo htmlspecialchars(fncheckfortitle($row['title'], $defaultTitle), ENT_QUOTES); ?></td>
+						<td><img src="images/slideimages/<?php echo htmlspecialchars($row['picture'], ENT_QUOTES); ?>" style="max-width: 100px; max-height: 100px; border-radius: 15px;" /></td>
+						<td><?php echo htmlspecialchars($row['message'], ENT_QUOTES); ?></td>
+						<td><?php echo htmlspecialchars($row['startDate'], ENT_QUOTES); ?></td>
+						<td><?php echo htmlspecialchars($row['endDate'], ENT_QUOTES); ?></td>
+						<td><a href="editslide.php?id=<?php echo htmlspecialchars($row['id'], ENT_QUOTES); ?>&screenName=<?php echo htmlspecialchars($id, ENT_QUOTES); ?>"><i class="fa fa-pencil-square-o"></i></a></td>
+						<td><a href="previewslide.php?id=<?php echo htmlspecialchars($row['id'], ENT_QUOTES); ?>&screenName=<?php echo htmlspecialchars($id, ENT_QUOTES); ?>"><i class="fa fa-play-circle-o"></i></a></td>
+						<td><a href="deleteslide.php?id=<?php echo htmlspecialchars($row['id'], ENT_QUOTES); ?>&screenName=<?php echo htmlspecialchars($id, ENT_QUOTES); ?>"><i class="fa fa-trash-o"></i></a></td>
 						
 					
 					
@@ -75,17 +75,18 @@
 			</table>
 		</div>
 		
+		<hr />
 		<div class="row" style="margin-top: 100px">
 			<div class="preview-controls">
 				<ul class="list-unstyled list-inline text-center">
 				<li>
-					<a href="managescreen.php?id=<?php echo $id; ?>">Edit Screen</a>
+					<a href="managescreen.php?id=<?php echo htmlspecialchars($id, ENT_QUOTES); ?>">Edit Screen Settings</a>
 				</li>
 				<li>
-					<a href="previewscreen.php?screenName=<?php echo $id; ?>">Preview Screen</a>
+					<a href="previewscreen.php?screenName=<?php echo htmlspecialchars($id, ENT_QUOTES); ?>">Preview Screen</a>
 				</li>
 				<li>
-					<a href="screenURL.php?id=<?php echo $id; ?>">Screen URL</a>
+					<a href="screenURL.php?id=<?php echo htmlspecialchars($id, ENT_QUOTES); ?>">Get Screen URL</a>
 				</li>
 				</ul>
 			</div>

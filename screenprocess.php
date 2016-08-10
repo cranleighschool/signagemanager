@@ -19,7 +19,7 @@ fontSize INT(3) NOT NULL DEFAULT 80,
 lineHeight INT(3) NOT NULL DEFAULT 80,
 startDate datetime NULL,
 endDate datetime NULL,
-background varChar(50) DEFAULT 'background.jpg'";
+background varChar(50) DEFAULT 'bg1.jpg'";
 
 try {
 	$PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

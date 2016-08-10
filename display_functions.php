@@ -41,7 +41,7 @@ function fnslidesindate($PDO, $fntable, $fnqcol, $fnitem) {
 						'why' => 'None Set',
 						'fontSize' => 80,
 						'lineHeight' => 80,
-						'background' => 'background.jpg',
+						'background' => 'bg1.jpg',
 					),
 					);
 					return $queryResult;

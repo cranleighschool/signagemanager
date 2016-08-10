@@ -47,7 +47,7 @@ if(!empty($prevscreenArray)) {
  	
 <div class="container tjb_container" style="height: 825px;">
 <div class="page_title">
-	<h1>Preview Screen - <?php echo $screenInfo[0]['screenName']; ?></h1>
+	<h1>Preview Screen - <?php echo htmlspecialchars($screenInfo[0]['screenName'], ENT_QUOTES); ?></h1>
 </div>
 	<div style="position: absolute; right: 10px; top: 5px;"><a href="#" data-toggle="tooltip" title="Slides on the preview change every 5 seconds"><i class="fa fa-question-circle fa-3x" aria-hidden="true" ></i></a></div>
 	
@@ -57,8 +57,8 @@ if(!empty($prevscreenArray)) {
 	
 		<div class="preview-controls">
 		<ul class="list-unstyled list-inline text-center">
-		<li><a href="slidewizard1.php?screenName=<?php echo $screenid; ?>">Add  New Slide</a></li>
-		<li><a href="screenmanager.php?id=<?php echo $screenid; ?>">Manage Screen</a></li>
+		<li><a href="slidewizard1.php?screenName=<?php echo htmlspecialchars($screenid, ENT_QUOTES); ?>">Add  New Slide</a></li>
+		<li><a href="screenmanager.php?id=<?php echo htmlspecialchars($screenid, ENT_QUOTES); ?>">Manage Screen</a></li>
 		</ul>
 		
 	</div>

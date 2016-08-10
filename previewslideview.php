@@ -35,7 +35,6 @@ h1, h2, h3, h4, p {
 body {
 	width: 1920px;
 	height: 1080px;
-	background-color: grey;
 	margin: 0;
 	padding: 0;
 }
@@ -82,36 +81,36 @@ $t++;
 		
 	?>
 
-<div class="frame <?php echo $slides['template']; ?>" id="slide_<?php echo $i; ?>" style="opacity: 1; background-image: url('images/<?php echo $slides['background']; ?>');">
+<div class="frame <?php echo htmlspecialchars($slides['template'], ENT_QUOTES); ?>" id="slide_<?php echo $i; ?>" style="opacity: 1; background-image: url('images/<?php echo htmlspecialchars($slides['background'], ENT_QUOTES); ?>');">
 	
-	<div class="<?php echo $slides['template']; ?>_title">
-		<h1><?php echo strtoupper(fncheckfortitle($slides['title'], $screenInfo[0]['defaultTitle'])); ?></h1>
+	<div class="<?php echo htmlspecialchars($slides['template'], ENT_QUOTES); ?>_title">
+		<h1><?php echo htmlspecialchars(strtoupper(fncheckfortitle($slides['title'], $screenInfo[0]['defaultTitle'])), ENT_QUOTES); ?></h1>
 	</div>
-	<div class="<?php echo $slides['template']; ?>_pic" style="background-image: url('images/slideimages/<?php echo $slides['picture']; ?>');">
+	<div class="<?php echo htmlspecialchars($slides['template'], ENT_QUOTES); ?>_pic" style="background-image: url('images/slideimages/<?php echo htmlspecialchars($slides['picture'], ENT_QUOTES); ?>');">
 		
 	</div>
-	<div class="<?php echo $slides['template']; ?>_message" <?php fntemplatehide($is_message); ?>>
-		<h1 style="font-size: <?php echo $slides['fontSize']; ?>px; line-height: <?php echo $slides['lineHeight']; ?>px;" ><?php echo strtoupper($slides['message']); ?></h1>
+	<div class="<?php echo htmlspecialchars($slides['template'], ENT_QUOTES); ?>_message" <?php fntemplatehide($is_message); ?>>
+		<h1 style="font-size: <?php echo htmlspecialchars($slides['fontSize'], ENT_QUOTES); ?>px; line-height: <?php echo htmlspecialchars($slides['lineHeight'], ENT_QUOTES); ?>px;" ><?php echo htmlspecialchars(strtoupper($slides['message']), ENT_QUOTES); ?></h1>
 	</div>
 	
-	<div class="<?php echo $slides['template']; ?>_where" <?php fntemplatehide($is_where); ?>>
+	<div class="<?php echo htmlspecialchars($slides['template'], ENT_QUOTES); ?>_where" <?php fntemplatehide($is_where); ?>>
 		<h1 style="	color: #FFC627; text-align: right; ">WHERE</h1>
-		<h1><?php echo strtoupper($slides['theWhere']); ?></h1>
+		<h1><?php echo htmlspecialchars(strtoupper($slides['theWhere']), ENT_QUOTES); ?></h1>
 	</div>
 	
-	<div class="<?php echo $slides['template']; ?>_when" <?php fntemplatehide($is_when); ?>>
+	<div class="<?php echo htmlspecialchars($slides['template'], ENT_QUOTES); ?>_when" <?php fntemplatehide($is_when); ?>>
 		<h1 style="	color: #FFC627;text-align: right; position: absolute; top: 0px; right: 0px;">WHEN</h1>
-		<h1><?php echo strtoupper($slides['theWhen']); ?></h1>
+		<h1><?php echo htmlspecialchars(strtoupper($slides['theWhen']), ENT_QUOTES); ?></h1>
 	</div>
 	
-	<div class="<?php echo $slides['template']; ?>_who" <?php fntemplatehide($is_who); ?>>
+	<div class="<?php echo htmlspecialchars($slides['template'], ENT_QUOTES); ?>_who" <?php fntemplatehide($is_who); ?>>
 		<h1 style="	color: #FFC627;">WHO</h1>
-		<h1><?php echo strtoupper($slides['theWho']); ?></h1>
+		<h1><?php echo htmlspecialchars(strtoupper($slides['theWho']), ENT_QUOTES); ?></h1>
 	</div>
 	
-	<div class="<?php echo $slides['template']; ?>_why" <?php fntemplatehide($is_why); ?>>
+	<div class="<?php echo htmlspecialchars($slides['template'], ENT_QUOTES); ?>_why" <?php fntemplatehide($is_why); ?>>
 		<h1 style="	color: #FFC627;">WHY</h1>
-		<h1><?php echo strtoupper($slides['theWhy']); ?></h1>
+		<h1><?php echo htmlspecialchars(strtoupper($slides['theWhy']), ENT_QUOTES); ?></h1>
 	</div>
 	
 	
@@ -122,29 +121,9 @@ $t++;
 
 
 <?php
-} ?>
-
-<!--
-<div class="frame main_photo_landscape" id="slide_2" style="opacity: 0;">
-	<div class="mpl_title">
-		<h1 style="font-size: 120px;">DEPUTY HEAD MESSAGES</h1>
-	</div>
-	<div class="mpl_pic" style="background-image: url('images/slideimages/2.jpg');">
-		
-	</div>
-	<div class="mpl_message">
-		<h1 style="font-size: 80px; line-height: 80px;" >GOOD LUCK WITH THE SOMETHING SOMETHING SOMETHING THE DARK SIDE</h1>
-	</div>
-</div>
--->
-
-
-<?php #var_dump($screenInfo);
-echo 'slide count is...';
-echo $slideCount; 
+} 
 date_default_timezone_set('Europe/London');
 $date = date('Y-m-d H:i:s');
-echo $date;
 ?>
 
 </body>

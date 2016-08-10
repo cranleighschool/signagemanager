@@ -75,7 +75,7 @@
 						
 				<ul class="nav navbar-nav">
 					<li><a href="#menu-toggle" id="menu-toggle" onClick="setPadding()"><i class="fa fa-bars"></i></a></li>
-					<li><a  href="signagemanager.php">Home</a></li>				
+					<li><a  href="index.php">Home</a></li>				
 					<li class="dropdown active">
 						<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage Screen<span class="caret"></span></a>
 							<ul class="dropdown-menu">	

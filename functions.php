@@ -20,19 +20,46 @@ require_once 'class.Login.php';
 function fnlogout() {
 	session_destroy();
 	header("Location:index.php");
+
 }
 function fnlogin() {
 	$login = new Login($_POST['username'], $_POST['p']);
 }
 
+//ADMIN FUNCTIONS//
+function fnisadmin($PDO, $username) {
+	$accessArray = fnglobalquery($PDO, 'groupID', 'permissions', 'username', $username, 1,1,1,1, 'groupID', 'ASC');
+	$editedArray = [];
+	foreach ($accessArray as $access) {
+		$editedArray[] = $access['groupID'];
+	}
+	$admingroup = 1;
+	if(in_array($admingroup, $editedArray)) {
+		return "true";
+	} else {
+		return "false";
+	}
+}
 
+function fnadminreq($PDO, $username, $isadmin) {
+	if ($isadmin == "true") {
+
+	} else {
+		$_SESSION['errors']['error5301'] = "Cheeky, you need to be an Admin to Access that page. We are going to have to keep an eye on you" ;
+		session_write_close();
+		header('Location: index.php');	
+		exit;
+	}
+}
+
+
+//END OF ADMIN FUCNTIONS
 function fnnewscreens($PDO, $username) {
 	$accessArray = fnglobalquery($PDO, 'groupID', 'permissions', 'username', $username, 1,1,1,1, 'groupID', 'ASC');
 	$editedArray = [];
 	foreach ($accessArray as $access) {
 		$editedArray[] = $access['groupID'];
 	}
-
 	$admingroup = 1;
 	if(in_array($admingroup, $editedArray)) {
 		$stmt = $PDO->prepare("SELECT * FROM screens");

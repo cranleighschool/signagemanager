@@ -53,14 +53,14 @@
 						<?php foreach($screens as $row) {
 							$screenName = 'screen' . $row['id'];
 							?>
-							<td><?php echo $row['screenName']; ?></td>
-							<td><?php echo $row['defaultTitle']; ?></td>
-							<td><?php echo $row['slideDuration']; ?>s</td>
-							<td><?php echo fncountactiveslides($PDO, $screenName); ?></td>
-							<td><a href="managescreen.php?id=<?php echo $row['id']; ?>"><i class="fa fa-pencil-square-o"></i></a></td>
-							<td><a href="screenmanager.php?id=<?php echo $row['id']; ?>"><i class="fa fa-th-list"></i></a></td>
-							<td><a href="previewscreen.php?screenName=<?php echo $row['id']; ?>"><i class="fa fa-play-circle-o"></i></a></td>
-							<td><a href="deletescreen.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure you want to delete this Screen?')"><i class="fa fa-trash-o"></i></a></td>
+							<td><?php echo htmlspecialchars($row['screenName'], ENT_QUOTES); ?></td>
+							<td><?php echo htmlspecialchars($row['defaultTitle'], ENT_QUOTES); ?></td>
+							<td><?php echo htmlspecialchars($row['slideDuration'], ENT_QUOTES); ?>s</td>
+							<td><?php echo htmlspecialchars(fncountactiveslides($PDO, $screenName), ENT_QUOTES); ?></td>
+							<td><a href="managescreen.php?id=<?php echo htmlspecialchars($row['id'], ENT_QUOTES); ?>"><i class="fa fa-pencil-square-o"></i></a></td>
+							<td><a href="screenmanager.php?id=<?php echo htmlspecialchars($row['id'], ENT_QUOTES); ?>"><i class="fa fa-th-list"></i></a></td>
+							<td><a href="previewscreen.php?screenName=<?php echo htmlspecialchars($row['id'], ENT_QUOTES); ?>"><i class="fa fa-play-circle-o"></i></a></td>
+							<td><a href="deletescreen.php?id=<?php echo htmlspecialchars($row['id'], ENT_QUOTES); ?>" onclick="return confirm('Are you sure you want to delete this Screen?')"><i class="fa fa-trash-o"></i></a></td>
 					</tr>
 						<?php } ?>
 				</table>
@@ -80,13 +80,13 @@
 				<div class="col-sm-12 screen-select  text-center">
 				<a data-toggle="tooltip" title="Manage Slides" href="screenmanager.php?id=<?php echo $tiles['id']; ?>">
 						<div class="screen_tile_name">
-							<h1><?php echo strtoupper($tiles['screenName']); ?></h1>
+							<h1><?php echo htmlspecialchars(strtoupper($tiles['screenName']), ENT_QUOTES); ?></h1>
 						</div>
 						
 						<div class="screen-info-wrap">
 							<h4>
 							Active Slides: <?php echo fncountactiveslides($PDO, $tableName); ?><br /><br />
-							Slide Duration: <?php echo $tiles['slideDuration']; ?>s
+							Slide Duration: <?php echo htmlspecialchars($tiles['slideDuration'], ENT_QUOTES); ?>s
 							</h4>
 						</div>
 						
@@ -115,3 +115,4 @@
 	<?php include('footer.php'); ?>	
 	
 </body>
+</html>
