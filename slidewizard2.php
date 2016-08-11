@@ -27,13 +27,12 @@
 		$alert = $_POST['alert'];
 	}
 		
-	$screens = fnglobalquery($PDO, '*', 'screens', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
 	$templates = fnglobalquery($PDO, '*', 'templates', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
 	$screenName = $_REQUEST['screenName'];
 	$screen = fnglobalquery($PDO, '*', 'screens', 'id', $screenName, 1, 1, 1, 1, 'id', 'ASC');
 	$screenid = $screen[0]['id'];
 	$tableName = 'screen' . $screenid;
-	$galleryImages = fnglobalquery($PDO, '*', 'gallery', 1, 1, 1, 1, 1, 1, 'dateStamp', 'DESC');
+	$galleryImages = fnglobalquery($PDO, '*', 'gallery', 'type', 'slideimage', 1, 1, 1, 1, 'dateStamp', 'DESC');
 	$returnUrlName = $screenName;
 	$returnUrlTemplate = $Seltemplate;
 
@@ -58,6 +57,7 @@
 </head>
 
 <body>
+<?php include('nav.php'); ?>
  <!-- Navigation -->
    <nav class="navbar navbar-default navbar-fixed-top" style="border-bottom: 1px solid #0C223F;">
 		<div class="container">
@@ -197,7 +197,7 @@
 document.forms[0].addEventListener('submit', function( evt ) {
     var file = document.getElementById('fileToUpload').files[0];
 
-    if(file && file.size < 1000000) { // 1 MB (this size is in bytes)
+    if(file && file.size < 2000000) { // 1 MB (this size is in bytes)
         //Submit form        
     } else {
 		alert("Haha - You think you can slow down our servers with massive images. Not this time. See the user guides on how to resize images");

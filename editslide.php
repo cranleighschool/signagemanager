@@ -22,9 +22,10 @@
 	$tableName = 'screen' . $screenName;
 	
 	$slides = fnglobalquery($PDO, '*', $tableName, 'id', $id, 1, 1, 1, 1, 'id', 'ASC');
+	$bgimages = fnglobalquery($PDO, '*', 'gallery', 'type', 'bgimage', 1, 1, 1, 1, 'id', 'ASC');
 	
 	$templates = fnglobalquery($PDO, '*', 'templates', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
-	$galleryImages = fnglobalquery($PDO, '*', 'gallery', 1, 1, 1, 1, 1, 1, 'dateStamp', 'DESC');
+	$galleryImages = fnglobalquery($PDO, '*', 'gallery', 'type', 'slideimage', 1, 1, 1, 1, 'dateStamp', 'DESC');
 	$daTemplate = $slides[0]['template'];
 	$thetemplate = fnglobalquery($PDO, '*', 'templates', 'className', $daTemplate, 1, 1, 1, 1, 'id', 'ASC');
 	#CONFIRM FORM OPTIONS
@@ -40,7 +41,7 @@
 </head>
 
 <body>
-
+<?php include('nav.php'); ?>
 	<div class="container tjb_container">	
 	
 	<div class="page_title">
@@ -158,22 +159,34 @@
 				</div>
 				
 				<div class="col-sm-6">
-
-					<div class="form-group">
+				
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="form-group">
+						
 						<label for="department">Picture</label>
-						<select style="color: black;"  type="text" class="form-control" id="picture" name="picture" required>	
-							<option value="<?php echo htmlspecialchars($slides[0]['picture'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($slides[0]['picture'], ENT_QUOTES); ?></option>
+						<select style="color: black;"  type="text" class="form-control" id="picture" name="picture" onchange="pictureupdate(this.value)" required>						
 						<?php foreach($galleryImages as $imageOptions) {
-							?>
-							
+							if($imageOptions['fileName'] ==  $slides[0]['picture']) {
+								?>
+									<option value="<?php echo htmlspecialchars($imageOptions['fileName'], ENT_QUOTES); ?>" selected="selected"><?php echo htmlspecialchars($imageOptions['fileName'], ENT_QUOTES); ?></option>
+								<?php
+							} else {
+									?>
 							<option value="<?php echo htmlspecialchars($imageOptions['fileName'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($imageOptions['fileName'], ENT_QUOTES); ?></option>
-							
 							<?php
+							}
 						}
 							?>
 						</select>
-						
+						</div>
 					</div>
+					
+					<div class="col-sm-6 text-center">
+						<img class="img-responsive" style="border-radius: 15px; margin: 20px 0; max-height: 250px;" id="pic2upd"  src="images/slideimages/<?php echo htmlspecialchars($slides[0]['picture'], ENT_QUOTES); ?>" />
+					</div>
+					
+				</div>
 					
 					<div class="row">
 						<div class="col-sm-6">
@@ -190,9 +203,24 @@
 						</div>
 					</div>	
 							
-					<div class="form-group" <?php fnforminputornot($is_background); ?>>
-						<label for="background">Background Image</label>
-						<input rows=3 class="form-control" id="background" name="background" value="<?php echo htmlspecialchars($slides[0]['background'], ENT_QUOTES); ?>">
+					<div class="form-group">
+						<label for="defaultBackground">Default Background</label>
+						
+						<select type="text" class="form-control" id="defaultBackground" name="defaultBackground" value="<?php echo htmlspecialchars($slides[0]['background'], ENT_QUOTES); ?>">
+						<?php 
+							$bgselected = $slides[0]['background'];
+							foreach($bgimages as $option) {
+								if($bgselected == $option['fileName']){
+									?>
+									<option value="<?php echo htmlspecialchars($option['fileName'], ENT_QUOTES); ?>" selected="selected"><?php echo htmlspecialchars($option['fileName'], ENT_QUOTES); ?></option>
+								<?php
+								} else { ?>
+									<option value="<?php echo htmlspecialchars($option['fileName'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($option['fileName'], ENT_QUOTES); ?></option>
+									<?php
+								}
+							}
+						?>
+						</select>
 					</div>
 					
 					
@@ -209,10 +237,20 @@
 		</form>
 		
 	</div>
-	<?php include('footer.php');
+	<?php include('footer.php'); ?>
+	
+<script>
+function pictureupdate(picfile) {
+	
+	console.log('changed');
+	document.getElementById("pic2upd").src="images/slideimages/" + picfile;	
+}
 
-			?>
-		<script> 
+
+
+</script>	
+	
+<script> 
 	document.editscreenform.lineHeight.oninput = function(){
     document.editscreenform.lineHeightOutid.value = document.editscreenform.lineHeight.value;
  }	 

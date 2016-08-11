@@ -7,7 +7,6 @@
 <link rel="stylesheet" type="text/css" href="./jquery.datetimepicker.css"/>
 <?php
 	include('head.php');
-	$screens = fnglobalquery($PDO, '*', 'screens', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
 	$templates = fnglobalquery($PDO, '*', 'templates', 1, 1, 1, 1, 1, 1, 'theOrder', 'ASC');
 	$logQuery = fnglobalquery($PDO, '*', 'userlog', 1, 1, 1, 1, 1, 1, 'id', 'DESC');
 ?>
@@ -29,7 +28,7 @@
 </head>
 
 <body>
-	
+<?php include('nav.php'); ?>
 	<div class="container tjb_container">
 	<?php if(isset($alert)){ echo $alert; } ?>
 	

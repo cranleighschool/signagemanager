@@ -13,7 +13,7 @@
 </head>
 
 <body>
-
+<?php include('nav.php'); ?>
 	<div class="container tjb_container">	
 	
 	<img src="images/CS_logo_landscape2.jpg" class="img-responsive" style="width: 100%;" />

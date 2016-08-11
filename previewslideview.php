@@ -62,7 +62,6 @@ $t++;
 </style>
 </head>
 <body>
-
 <?php 
 	$i = 0;
 	foreach($slides as $slides) {

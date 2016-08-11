@@ -8,14 +8,13 @@
 <?php 
 	include('head.php');
 	
-	$screens = fnglobalquery($PDO, '*', 'screens', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
 	if(!isset($_REQUEST['id'])) {
 		$id = $screens[0]['id'];
 	} else {
 		$id = $_REQUEST['id'];
 	}
-	$screen = fnglobalquery($PDO, '*', 'screens', 'id', $id, 1, 1, 1, 1, 'id', 'ASC');
 	$tableName = 'screen' . $id;
+	$screen = fnglobalquery($PDO, '*', 'screens', 'id', $id, 1, 1, 1, 1, 'id', 'ASC');
 	$slides = fnglobalquery($PDO, '*', $tableName, 1, 1, 1, 1, 1, 1, 'id', 'ASC');
 	$defaultTitle = $screen[0]['defaultTitle'];
 	$templates = fnglobalquery($PDO, '*', 'templates', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
@@ -23,14 +22,14 @@
 	$templateName = fnglobalquery($PDO, 'name', 'templates', 'className', $Tname, 1, 1, 1, 1, 'id', 'ASC');
 	$groups = fnglobalquery($PDO, '*', 'groups', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
 	
-	
+	$bgimages = fnglobalquery($PDO, '*', 'gallery', 'type', 'bgimage', 1, 1, 1, 1, 'id', 'ASC');
 ?>
 
 <title>Digital Signage Manager</title>
 
 </head>
 <body>
-	
+	<?php include('nav.php'); ?>
 	<div class="container tjb_container">
 		<div class="page_title">	
 			<h1><?php echo $screen[0]['screenName']; ?> - Manage Screen</h1>
@@ -97,7 +96,22 @@
 					
 					<div class="form-group">
 						<label for="defaultBackground">Default Background</label>
-						<input type="text" class="form-control" id="defaultBackground" name="defaultBackground" value="<?php echo htmlspecialchars($row['defaultBackground'], ENT_QUOTES); ?>"/>
+						
+						<select type="text" class="form-control" id="defaultBackground" name="defaultBackground" value="<?php echo htmlspecialchars($row['defaultBackground'], ENT_QUOTES); ?>">
+						<?php 
+							$bgselected = $row['defaultBackground'];
+							foreach($bgimages as $option) {
+								if($bgselected == $option['fileName']){
+									?>
+									<option value="<?php echo htmlspecialchars($option['fileName'], ENT_QUOTES); ?>" selected="selected"><?php echo htmlspecialchars($option['fileName'], ENT_QUOTES); ?></option>
+								<?php
+								} else { ?>
+									<option value="<?php echo htmlspecialchars($option['fileName'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($option['fileName'], ENT_QUOTES); ?></option>
+									<?php
+								}
+							}
+						?>
+						</select>
 					</div>
 					
 					<div class="form-group">

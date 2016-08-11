@@ -7,9 +7,7 @@
 	include('head.php');
 	include('functions.php');
 
-	$screens = fnglobalquery($PDO, '*', 'screens', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
-	$templates = fnglobalquery($PDO, '*', 'templates', 1, 1, 1, 1, 1, 1, 'theOrder', 'ASC');
-	
+	$templates = fnglobalquery($PDO, '*', 'templates', 1, 1, 1, 1, 1, 1, 'theOrder', 'ASC');	
 	$error = $_REQUEST['error'];
 	
 	if($error == 'error-filenotset') {

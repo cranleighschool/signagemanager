@@ -20,7 +20,7 @@ $fontSize = $_POST['fontSize'];
 $lineHeight = $_POST['lineHeight'];
 $startDate = $_POST['startDate'];
 $endDate = $_POST['endDate'];
-$background = $_POST['background'];
+$background = $_POST['defaultBackground'];
 
 
 

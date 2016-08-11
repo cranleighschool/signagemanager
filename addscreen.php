@@ -8,12 +8,14 @@
 <?php 
 	include('head.php');
 	$templates = fnglobalquery($PDO, '*', 'templates', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
+	$bgimages = fnglobalquery($PDO, '*', 'gallery', 'type', 'bgimage', 1, 1, 1, 1, 'id', 'ASC');
 ?>
 <title>Add Screen</title>
 
 </head>
 
 <body>
+<?php include('nav.php'); ?>
  
 	<div class="container tjb_container">	
 	<div class="page_title">
@@ -25,7 +27,7 @@
 			<div class="col-sm-6">
 			
 				<div class="form-group">
-					<label for="screenName">Screen Name</label>
+					<label for="screenName">Screen Name (Not shown on screen)</label>
 					<input type="text" class="form-control" id="screenName" name="screenName"  maxlength="20"/>
 					<input type="hidden" class="form-control" id="owner" name="owner" value="<?php echo strtoupper($_SESSION['user']['username']); ?>"/>
 				</div>
@@ -40,14 +42,29 @@
 			
 			<div class="col-sm-6">
 				<div class="form-group">
-					<label for="defaultTitle">Default Title</label>
+					<label for="defaultTitle">Default Title (eg. Department or Screen name)</label>
 					<input type="text" class="form-control" id="defaultTitle" name="defaultTitle" maxlength="100"/>
 				</div>
 				
 				<div class="form-group">
-					<label for="defaultBackground">Default Background</label>
-					<input type="text" class="form-control" id="defaultBackground" name="defaultBackground" value="bg1.jpg"/>
-				</div>
+						<label for="defaultBackground">Default Background</label>
+						
+						<select type="text" class="form-control" id="defaultBackground" name="defaultBackground" value="<?php echo htmlspecialchars($row['defaultBackground'], ENT_QUOTES); ?>">
+						<?php 
+							$bgselected = $row['defaultBackground'];
+							foreach($bgimages as $option) {
+								if($bgselected == $option['fileName']){
+									?>
+									<option value="<?php echo htmlspecialchars($option['fileName'], ENT_QUOTES); ?>" selected="selected"><?php echo htmlspecialchars($option['fileName'], ENT_QUOTES); ?></option>
+								<?php
+								} else { ?>
+									<option value="<?php echo htmlspecialchars($option['fileName'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($option['fileName'], ENT_QUOTES); ?></option>
+									<?php
+								}
+							}
+						?>
+						</select>
+					</div>
 				
 				<div class="form-group">
 					<label for="defaultTemplate">Default Template</label>

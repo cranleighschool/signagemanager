@@ -66,6 +66,7 @@ function fnnewscreens($PDO, $username) {
 	} else {
 	$newEdited = implode(',', $editedArray);		
 	$stmt = $PDO->prepare("SELECT * FROM screens WHERE owner IN ($newEdited)");
+	$stmt->bindParam(':username', $username);
 	}
 	
 	try {
@@ -74,8 +75,29 @@ function fnnewscreens($PDO, $username) {
 		print 'Error!: Failed' . $e->getMessage();
 		die();
 	}	
-	$queryResult = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	$queryResult1 = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+	$stmt = $PDO->prepare("SELECT * FROM screens WHERE owner='TESTTEACHER'");
+	$stmt->bindParam(':username', $username);
+
+	try {
+		$stmt->execute();
+	}catch(PDOException $e){
+		print 'Error!: Failed' . $e->getMessage();
+		die();
+	}	
+	$queryResult2= $stmt->fetchAll(PDO::FETCH_ASSOC);
+	$queryResult = [];
+	
+	foreach($queryResult1 as $arr1) {
+		$queryResult[] = $arr1;
+	}
+	foreach($queryResult2 as $arr2) {
+		$queryResult[] = $arr2;
+	}
+	
 	return $queryResult;
+	
 }
 
 

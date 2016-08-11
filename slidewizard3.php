@@ -29,7 +29,7 @@
 	$imgSelpro = fnglobalquery($PDO, '*', 'gallery', 'id', $imgSel, 1, 1, 1, 1, 'id', 'ASC');
 	$imageSelected = $imgSelpro[0]['fileName'];
 	$galleryImages = fnglobalquery($PDO, '*', 'gallery', 1, 1, 1, 1, 1, 1, 'dateStamp', 'DESC');
-	$screens = fnglobalquery($PDO, '*', 'screens', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
+	$bgimages = fnglobalquery($PDO, '*', 'gallery', 'type', 'bgimage', 1, 1, 1, 1, 'id', 'ASC');
 	$templates = fnglobalquery($PDO, '*', 'templates', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
 	$screenName = $_REQUEST['screenName'];
 	$screen = fnglobalquery($PDO, '*', 'screens', 'id', $screenName, 1, 1, 1, 1, 'id', 'ASC');
@@ -54,7 +54,7 @@
 </head>
 
 <body>
- 
+ <?php include('nav.php'); ?>
 	<div class="container tjb_container">
 	<?php if(isset($alert)){ echo $alert; } ?>
 	<div class="page_title">
@@ -177,9 +177,24 @@
 			</div>
 			
 			<div class="form-group">
-				<label for="background">Background Image</label>
-				<input class="form-control" id="background" name="background" value="<?php echo htmlspecialchars($screen[0]['defaultBackground'], ENT_QUOTES); ?>">
-			</div>
+						<label for="defaultBackground">Default Background</label>
+						
+						<select type="text" class="form-control" id="defaultBackground" name="defaultBackground" value="<?php echo htmlspecialchars($row['defaultBackground'], ENT_QUOTES); ?>">
+						<?php 
+							$bgselected = $row['defaultBackground'];
+							foreach($bgimages as $option) {
+								if($bgselected == $option['fileName']){
+									?>
+									<option value="<?php echo htmlspecialchars($option['fileName'], ENT_QUOTES); ?>" selected="selected"><?php echo htmlspecialchars($option['fileName'], ENT_QUOTES); ?></option>
+								<?php
+								} else { ?>
+									<option value="<?php echo htmlspecialchars($option['fileName'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($option['fileName'], ENT_QUOTES); ?></option>
+									<?php
+								}
+							}
+						?>
+						</select>
+					</div>
 			
 						
 		<br />

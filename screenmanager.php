@@ -29,6 +29,7 @@
 </head>
 
 <body>
+<?php include('nav.php'); ?>
 	
 	<div class="container tjb_container">
 <div class="page_title">	
@@ -65,7 +66,7 @@
 						<td><?php echo htmlspecialchars($row['endDate'], ENT_QUOTES); ?></td>
 						<td><a href="editslide.php?id=<?php echo htmlspecialchars($row['id'], ENT_QUOTES); ?>&screenName=<?php echo htmlspecialchars($id, ENT_QUOTES); ?>"><i class="fa fa-pencil-square-o"></i></a></td>
 						<td><a href="previewslide.php?id=<?php echo htmlspecialchars($row['id'], ENT_QUOTES); ?>&screenName=<?php echo htmlspecialchars($id, ENT_QUOTES); ?>"><i class="fa fa-play-circle-o"></i></a></td>
-						<td><a href="deleteslide.php?id=<?php echo htmlspecialchars($row['id'], ENT_QUOTES); ?>&screenName=<?php echo htmlspecialchars($id, ENT_QUOTES); ?>"><i class="fa fa-trash-o"></i></a></td>
+						<td><a href="deleteslide.php?id=<?php echo htmlspecialchars($row['id'], ENT_QUOTES); ?>&screenName=<?php echo htmlspecialchars($id, ENT_QUOTES); ?>" onclick="return confirm('Are you sure you want to delete this Slide?')"><i class="fa fa-trash-o"></i></a></td>
 						
 					
 					
@@ -79,6 +80,9 @@
 		<div class="row" style="margin-top: 100px">
 			<div class="preview-controls">
 				<ul class="list-unstyled list-inline text-center">
+				<li>
+					<a href="slidewizard1.php?screenName=<?php echo $id; ?>">Add New Slide</a>
+				</li>
 				<li>
 					<a href="managescreen.php?id=<?php echo htmlspecialchars($id, ENT_QUOTES); ?>">Edit Screen Settings</a>
 				</li>

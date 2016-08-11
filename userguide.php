@@ -8,14 +8,13 @@
 <?php 
 	include('head.php');
 
-	$screens = fnglobalquery($PDO, '*', 'screens', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
 	$templates = fnglobalquery($PDO, '*', 'templates', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
 ?>
 <title>About</title>
 </head>
 
 <body>
-
+<?php include('nav.php'); ?>
 	<div class="container tjb_container text-center">	
 	
 	<img src="images/CS_logo_landscape2.jpg" class="img-responsive" style="width: 100%;" />

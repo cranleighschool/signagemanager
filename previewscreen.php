@@ -6,7 +6,6 @@
 <head>
 <?php 
 	include('head.php');
-	$screens = fnglobalquery($PDO, '*', 'screens', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
 
 if(!isset($_REQUEST['screenName'])) {
 	// Return to error screen
@@ -44,12 +43,12 @@ if(!empty($prevscreenArray)) {
 </style>
 </head>
 <body>
- 	
+ <?php include('nav.php'); ?>
 <div class="container tjb_container" style="height: 825px;">
 <div class="page_title">
 	<h1>Preview Screen - <?php echo htmlspecialchars($screenInfo[0]['screenName'], ENT_QUOTES); ?></h1>
 </div>
-	<div style="position: absolute; right: 10px; top: 5px;"><a href="#" data-toggle="tooltip" title="Slides on the preview change every 5 seconds"><i class="fa fa-question-circle fa-3x" aria-hidden="true" ></i></a></div>
+	<div style="position: absolute; right: 10px; top: 10px;"><a href="#" data-toggle="tooltip" title="Slides on the preview change every 5 seconds"><i class="fa fa-question-circle fa-3x" aria-hidden="true" ></i></a></div>
 	
 	<iframe id="theframe" scrolling="no" src="previewFast.php?screenName=<?php echo $screenid; ?>"></iframe>
 

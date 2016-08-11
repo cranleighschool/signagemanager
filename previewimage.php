@@ -8,7 +8,6 @@
 <?php 
 	include('head.php');
 	$id = $_REQUEST['id'];
-	$screens = fnglobalquery($PDO, '*', 'screens', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
 	$templates = fnglobalquery($PDO, '*', 'templates', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
 	$SelectedImage = fnglobalquery($PDO, '*', 'gallery', 'id', $id, 1, 1, 1, 1, 'id', 'ASC');	
 ?>

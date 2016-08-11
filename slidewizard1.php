@@ -6,14 +6,13 @@
 <head>
 <?php 
 	include('head.php');
-	
-	$screens = fnglobalquery($PDO, '*', 'screens', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
 	$templates = fnglobalquery($PDO, '*', 'templates', 1, 1, 1, 1, 1, 1, 'theOrder', 'ASC');
 ?>
 <title>Slide Wizard - Select Template</title>
 
 </head>
-<body>	
+<body>
+<?php include('nav.php'); ?>
 	<div class="container tjb_container">
 	<?php 
 	if(empty($_REQUEST['screenName'])) {

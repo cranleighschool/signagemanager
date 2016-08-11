@@ -13,12 +13,13 @@
 	$screenid = $screen[0]['id'];
 	$tableName = 'screen' . $screen[0]['id'];
 	$templates = fnglobalquery($PDO, '*', 'templates', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
+	$bgimages = fnglobalquery($PDO, '*', 'gallery', 'type', 'bgimage', 1, 1, 1, 1, 'id', 'ASC');
 ?>
 <title>Add Slide</title>
 </head>
 
 <body>
- 	
+ <?php include('nav.php'); ?>
 	<div class="container tjb_container">	
 	<div class="page_title">
 		<h1>Add New Slide - <?php echo $screen[0]['screenName']; ?></h1>
@@ -98,8 +99,23 @@
 							
 					<br /><br />
 					<div class="form-group">
-						<label for="background">Background Image</label>
-						<input class="form-control" id="background" name="background" value="<?php echo $screen[0]['defaultBackground']; ?>">
+						<label for="defaultBackground">Default Background</label>
+						
+						<select type="text" class="form-control" id="defaultBackground" name="defaultBackground" value="<?php echo htmlspecialchars($row['defaultBackground'], ENT_QUOTES); ?>">
+						<?php 
+							$bgselected = $row['defaultBackground'];
+							foreach($bgimages as $option) {
+								if($bgselected == $option['fileName']){
+									?>
+									<option value="<?php echo htmlspecialchars($option['fileName'], ENT_QUOTES); ?>" selected="selected"><?php echo htmlspecialchars($option['fileName'], ENT_QUOTES); ?></option>
+								<?php
+								} else { ?>
+									<option value="<?php echo htmlspecialchars($option['fileName'], ENT_QUOTES); ?>"><?php echo htmlspecialchars($option['fileName'], ENT_QUOTES); ?></option>
+									<?php
+								}
+							}
+						?>
+						</select>
 					</div>
 					
 					<br />

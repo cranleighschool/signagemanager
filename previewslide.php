@@ -6,9 +6,6 @@
 <head>
 <?php 
 	include('head.php');
-
-	$screens = fnglobalquery($PDO, '*', 'screens', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
-	
 	
 if(!isset($_REQUEST['screenName'])) {
 	// Return an Error Screen

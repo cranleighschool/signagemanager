@@ -7,8 +7,7 @@
 <link rel="stylesheet" type="text/css" href="./jquery.datetimepicker.css"/>
 <?php 
 	include('head.php');	
-	$galleryImages = fnglobalquery($PDO, '*', 'gallery', 1, 1, 1, 1, 1, 1, 'dateStamp', 'DESC');
-	$screens = fnglobalquery($PDO, '*', 'screens', 1, 1, 1, 1, 1, 1, 'id', 'ASC');
+	$galleryImages = fnglobalquery($PDO, '*', 'gallery', 'type', 'slideimage', 1, 1, 1, 1, 'dateStamp', 'DESC');
 	$templates = fnglobalquery($PDO, '*', 'templates', 1, 1, 1, 1, 1, 1, 'theOrder', 'ASC');
 ?>
 
@@ -16,7 +15,7 @@
 </head>
 
 <body>
-	
+<?php include('nav.php'); ?>
 	<div class="container tjb_container">
 	<?php if(isset($alert)){ echo $alert; } ?>
 	<div class="page_title">

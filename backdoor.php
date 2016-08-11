@@ -9,7 +9,7 @@
 </head>
 
 <body>
-	
+<?php include('nav.php'); ?>
 	<div class="container" style="margin-top: 25px; background-color: white;">
 		<div class="row" style="position: relative;" >
 			<div style="position: absolute; top: 25px; width: 100%;" class="text-center">

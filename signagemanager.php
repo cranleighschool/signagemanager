@@ -22,6 +22,7 @@
 </head>
 
 <body>
+	<?php include('nav.php'); ?>
 	
 	<div class="container tjb_container">
 		<?php if(isset($alert)){ echo $alert; } ?>
@@ -30,11 +31,8 @@
 	</div>
 	
 	<div class="page_title">
-		<h1>Current Screens</h1>
+		<h1>Your Active Screens</h1>
 	</div>
-	
-
-	
 	
 	<div class="screen_table">
 			<div class="table-responsive screen_table">
@@ -50,7 +48,8 @@
 						<th class="text-center">Delete</th>
 					</tr>
 					<tr>
-						<?php foreach($screens as $row) {
+						<?php	
+							foreach($screens as $row) {
 							$screenName = 'screen' . $row['id'];
 							?>
 							<td><?php echo htmlspecialchars($row['screenName'], ENT_QUOTES); ?></td>
@@ -68,6 +67,11 @@
 		</div>
 		<br />
 		<hr />
+							<?php
+							if(empty($screens)) {
+									echo 'No Active Screens - To create one click the button at the top right of the screen';
+							}
+							?>
 	
 	<div class="screen_titles_wrapper">
 		<?php 
