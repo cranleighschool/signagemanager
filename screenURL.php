@@ -23,6 +23,7 @@
 </head>
 
 <body>
+<?php include('nav.php'); ?>
 	<div class="container tjb_container">
 		<div class="page_title">	
 			<h1>View Screen URL</h1>

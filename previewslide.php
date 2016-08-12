@@ -17,7 +17,7 @@ if(!isset($_REQUEST['id'])) {
 } else {
 	$id = $_REQUEST['id'];
 }
-iaAllowedhere($PDO, $_SESSION['user']['username'], $id);
+iaAllowedhere($PDO, $_SESSION['user']['username'], $screenid);
 $tableName = 'screen' . $screenid;
 $slideInfo = fnglobalquery($PDO, '*', $tableName, 1, 1, 1, 1, 1, 1, 'orderNumber', 'ASC');
 $theslide = fnglobalquery($PDO, '*', $tableName, 'id', $id, 1, 1, 1, 1, 'orderNumber', 'ASC');

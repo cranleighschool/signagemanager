@@ -11,7 +11,6 @@
 	<link rel="stylesheet" href="style.css" />
 	
 	
-	<?php // $screens = fnscreens($PDO, $_SESSION['user']['username'], 'testteacher'); ?>
 	<?php 
 			$screens = fnnewscreens($PDO, $_SESSION['user']['username']); 
 			
@@ -20,7 +19,6 @@
 	
 	<?php
 		if(isset($_SESSION['errors']['tjberror'])){ ?>
-			<!-- THIS IS NOW SET TJB -->
 			<script type="text/javascript">
 				alert('<?php echo $_SESSION['errors']['tjberror']; ?>');
 			</script>

@@ -11,7 +11,7 @@
 	include('head.php');
 	
 	if(!isset($_REQUEST['id'])) {
-		$id = 1;
+		
 	} else {
 		$id = $_REQUEST['id'];
 	}
