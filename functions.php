@@ -25,6 +25,36 @@ function fnlogout() {
 function fnlogin() {
 	$login = new Login($_POST['username'], $_POST['p']);
 }
+//ACCESS FUNCTIONS//
+function iaAllowedhere($PDO, $username, $screenid) {
+
+$thescreen = fnglobalquery($PDO, 'owner', 'screens', 'id', $screenid, 1, 1, 1, 1, 'id', 'ASC');
+$username = strtoupper($username);
+$permisseduser = strtoupper($thescreen[0]['owner']);
+
+ if(empty($thescreen)) {
+		$_SESSION['errors']['tjberror'] = "Cheeky, you don't have access to that Screen. We are going to have to keep an eye on you" ;
+		session_write_close();
+		header('Location: signagemanager.php?note=badmanleroybrown1');
+		exit;
+} else {
+	if ($permisseduser == $username) {
+	 echo 'User Only Allowed';
+ } else {
+	$accessArray = fnglobalquery($PDO, 'groupID', 'permissions', 'username', $username, 1,1,1,1, 'groupID', 'ASC');
+	if(in_array($thescreen[0]['owner'], $accessArray)) {
+	 echo 'User Group Allowed';
+	} else {
+		$_SESSION['errors']['tjberror'] = "Cheeky, you don't have access to that Screen. We are going to have to keep an eye on you" ;
+		session_write_close();
+		header('Location: signagemanager.php?note=badmanleroybrown');	
+		exit;
+	}
+}
+}
+ 
+	
+}
 
 //ADMIN FUNCTIONS//
 function fnisadmin($PDO, $username) {
@@ -45,13 +75,26 @@ function fnadminreq($PDO, $username, $isadmin) {
 	if ($isadmin == "true") {
 
 	} else {
-		$_SESSION['errors']['error5301'] = "Cheeky, you need to be an Admin to Access that page. We are going to have to keep an eye on you" ;
+		$_SESSION['errors']['tjberror'] = "Cheeky, you need to be an Admin to Access that page. We are going to have to keep an eye on you" ;
 		session_write_close();
 		header('Location: index.php');	
 		exit;
 	}
 }
 
+// DATE FUNCTIONS
+function dateTouk($mysqldate) {
+	$phpdate = strtotime( $mysqldate );
+	$mysqldate = date( 'd-m-Y H:i:s', $phpdate );
+	return $mysqldate;
+	}
+
+	function dateTomysql($myUKdate) {
+	$phpdate = strtotime( $myUKdate );
+	$myUKdate = date( 'Y-m-d H:i:s', $phpdate );
+	return $myUKdate;
+	}
+//END OF DATE FUNCTIONS 
 
 //END OF ADMIN FUCNTIONS
 function fnnewscreens($PDO, $username) {

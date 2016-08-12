@@ -222,36 +222,13 @@
  }
  
  </script>	
- <script src="./jquery.js"></script>
-<script src="build/jquery.datetimepicker.full.js"></script>
- <script>
- /*
-window.onerror = function(errorMsg) {
-	$('#console').html($('#console').html()+'<br>'+errorMsg)
-}*/
 
-$.datetimepicker.setLocale('en');
-
-$('#datetimepicker_format').datetimepicker({value:'2015/04/15 05:03', format: $("#datetimepicker_format_value").val()});
-console.log($('#datetimepicker_format').datetimepicker('getValue'));
-
-$("#datetimepicker_format_change").on("click", function(e){
-	$("#datetimepicker_format").data('xdsoft_datetimepicker').setOptions({format: $("#datetimepicker_format_value").val()});
-});
-$("#datetimepicker_format_locale").on("change", function(e){
-	$.datetimepicker.setLocale($(e.currentTarget).val());
-});
-
-$('#datetimepicker').datetimepicker({
-dayOfWeekStart : 1,
-lang:'en',
-disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
-startDate:	'1986/01/05'
-});
-$('.date_class').datetimepicker();
-
-</script>
 </body>
-
+<script src="./jquery.js"></script>
+<script src="build/jquery.datetimepicker.full.js"></script>
+<script>
+	$('#startDate').datetimepicker({ format: 'd-m-Y H:i' });
+	$('#endDate').datetimepicker({ format: 'd-m-Y H:i' });
+</script>
 
 </html>

@@ -16,8 +16,8 @@ $theWho = $_POST['theWho'];
 $theWhy = $_POST['theWhy'];
 $fontSize = $_POST['fontSize'];
 $lineHeight = $_POST['lineHeight'];
-$startDate = $_POST['startDate'];
-$endDate = $_POST['endDate'];
+$startDate = dateTomysql($_POST['startDate']);
+$endDate = dateTomysql($_POST['endDate']);
 
 $stmt = $PDO->prepare("INSERT INTO $screenTable (template, orderNumber, title, picture, message, theWhere, theWhen, theWho, theWhy, fontSize, lineHeight, startDate, endDate) VALUES (:template, :orderNumber, :title, :picture, :message, :theWhere, :theWhen, :theWho, :theWhy, :fontSize, :lineHeight, :startDate, :endDate)");
 

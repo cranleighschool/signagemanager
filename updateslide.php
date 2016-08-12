@@ -18,8 +18,8 @@ $theWho = $_POST['theWho'];
 $theWhy = $_POST['theWhy'];
 $fontSize = $_POST['fontSize'];
 $lineHeight = $_POST['lineHeight'];
-$startDate = $_POST['startDate'];
-$endDate = $_POST['endDate'];
+$startDate = dateTomysql($_POST['startDate']);
+$endDate = dateTomysql($_POST['endDate']);
 $background = $_POST['background'];
 
 

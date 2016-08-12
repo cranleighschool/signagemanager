@@ -7,6 +7,7 @@
 <head>
 
 <?php 
+
 	include('head.php');
 	
 	if(!isset($_REQUEST['id'])) {
@@ -15,10 +16,27 @@
 		$id = $_REQUEST['id'];
 	}
 	
+	iaAllowedhere($PDO, $_SESSION['user']['username'], $id);
+	
 	$screen = fnglobalquery($PDO, '*', 'screens', 'id', $id, 1, 1, 1, 1, 'id', 'ASC');
 	$tableName = 'screen' . $id;
 	$slides = fnglobalquery($PDO, '*', $tableName, 1, 1, 1, 1, 1, 1, 'orderNumber', 'ASC');
 	$defaultTitle = $screen[0]['defaultTitle'];
+	
+	
+	
+	
+	//echo 'TESTAREA';
+	//$username = strtoupper($_SESSION['user']['username']);
+	//$screenid = $id;
+	//$thescreen = fnglobalquery($PDO, 'owner', 'screens', 'id', $screenid, 1, 1, 1, 1, 'id', 'ASC');
+	//var_dump($thescreen);
+	//echo 'The Owner is...' . $thescreen[0]['owner'];
+	//echo 'The User is...' . $username;
+	//if ($thescreen[0]['owner'] == $username) {
+	//	 echo 'HOOZAAAAAAAAH';
+	// }
+	
 ?>
 
 <title>Digital Signage Manager</title>
@@ -62,8 +80,8 @@
 						<td><?php echo htmlspecialchars(fncheckfortitle($row['title'], $defaultTitle), ENT_QUOTES); ?></td>
 						<td><img src="images/slideimages/<?php echo htmlspecialchars($row['picture'], ENT_QUOTES); ?>" style="max-width: 100px; max-height: 100px; border-radius: 15px;" /></td>
 						<td><?php echo htmlspecialchars($row['message'], ENT_QUOTES); ?></td>
-						<td><?php echo htmlspecialchars($row['startDate'], ENT_QUOTES); ?></td>
-						<td><?php echo htmlspecialchars($row['endDate'], ENT_QUOTES); ?></td>
+						<td><?php echo htmlspecialchars(dateTouk($row['startDate']), ENT_QUOTES); ?></td>
+						<td><?php echo htmlspecialchars(dateTouk($row['endDate']), ENT_QUOTES); ?></td>
 						<td><a href="editslide.php?id=<?php echo htmlspecialchars($row['id'], ENT_QUOTES); ?>&screenName=<?php echo htmlspecialchars($id, ENT_QUOTES); ?>"><i class="fa fa-pencil-square-o"></i></a></td>
 						<td><a href="previewslide.php?id=<?php echo htmlspecialchars($row['id'], ENT_QUOTES); ?>&screenName=<?php echo htmlspecialchars($id, ENT_QUOTES); ?>"><i class="fa fa-play-circle-o"></i></a></td>
 						<td><a href="deleteslide.php?id=<?php echo htmlspecialchars($row['id'], ENT_QUOTES); ?>&screenName=<?php echo htmlspecialchars($id, ENT_QUOTES); ?>" onclick="return confirm('Are you sure you want to delete this Slide?')"><i class="fa fa-trash-o"></i></a></td>

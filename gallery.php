@@ -23,6 +23,7 @@
 	</div>
 	
 		<div class="gallery-uploads-wrap">
+		
 		<form action="upload.php" method="post" enctype="multipart/form-data">
 				
 			<ul class="list-inline list-unstyled" >
@@ -36,7 +37,9 @@
 				
 		</form>
 	</div>
-
+	<div class="" style="margin: 0; padding: 0;">
+		<h4>Either Select an Existing Image or Upload one using the buttons above. <b>All images must be less than 2mb</b></h4>
+	</div>
 	<?php 
 		$i = 0;
 		foreach($galleryImages as $imageTiles) {

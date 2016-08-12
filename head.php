@@ -24,5 +24,3 @@
 				alert('<?php echo $_SESSION['errors']['error5301']; ?>');
 			</script>
 <?php } else { echo ' <!-- Dont Worry be happy -->'; } ?>
-	
- ?>

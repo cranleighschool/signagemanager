@@ -28,8 +28,8 @@
 			
 				<div class="form-group">
 					<label for="screenName">Screen Name (Not shown on screen)</label>
-					<input type="text" class="form-control" id="screenName" name="screenName"  maxlength="20"/>
-					<input type="hidden" class="form-control" id="owner" name="owner" value="<?php echo strtoupper($_SESSION['user']['username']); ?>"/>
+					<input type="text" class="form-control" id="screenName" name="screenName"  maxlength="20" placeholder="eg. Maths Screen"/>
+					<input type="hidden" class="form-control" id="owner" name="owner" value="<?php echo strtoupper($_SESSION['user']['username']); ?>" />
 				</div>
 				
 				<div class="form-group">
@@ -43,7 +43,7 @@
 			<div class="col-sm-6">
 				<div class="form-group">
 					<label for="defaultTitle">Default Title (eg. Department or Screen name)</label>
-					<input type="text" class="form-control" id="defaultTitle" name="defaultTitle" maxlength="100"/>
+					<input type="text" class="form-control" id="defaultTitle" name="defaultTitle" maxlength="100" placeholder="eg. Maths Department or Maths News"/>
 				</div>
 				
 				<div class="form-group">
@@ -86,13 +86,6 @@
 
 	
 	</body>
-	<script> 
-	document.editscreenform.lineHeight.oninput = function(){
-    document.editscreenform.lineHeightOutid.value = document.editscreenform.lineHeight.value;
- }	 
-	document.editscreenform.fontSize.oninput = function(){
-    document.editscreenform.fontSizeOutid.value = document.editscreenform.fontSize.value;
- }
- </script>
+
 
 	</html>

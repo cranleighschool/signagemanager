@@ -40,11 +40,11 @@
 			<?php foreach($groups as $group) {
 				if($startGroup == $group['id']) {
 					?>
-					<option value="<?php echo $group['id']; ?>" selected="selected"><?php echo strtoupper($group['groupName']); ?></option>
+					<option value="<?php echo $group['id']; ?>" selected="selected"><?php echo $group['groupName']; ?></option>
 				<?php
 				} else {
 				?>
-					<option value="<?php echo $group['id']; ?>"><?php echo strtoupper($group['groupName']); ?></option>
+					<option value="<?php echo $group['id']; ?>"><?php echo $group['groupName']; ?></option>
 				<?php
 					}		
 				}
