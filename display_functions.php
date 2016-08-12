@@ -61,4 +61,11 @@ function fncheckfortitle($check, $default) {
 				echo 'style="opacity: 0;"';
 			}
 		}
+		
+	//ESC CHAR //
+function fnescapehtml($tobeescaped) {
+	$result = htmlspecialchars($tobeescaped, ENT_QUOTES);
+	return $result;
+}
+// END OF ESC CHAR //
 ?>

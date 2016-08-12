@@ -77,37 +77,37 @@ $t++;
 		?>		
 		
 
-	<div class="frame <?php echo $slides['template']; ?>" style="opacity: 1; background-image: url('images/<?php echo $slides['background']; ?>');">
+	<div class="frame <?php echo fnescapehtml($slides['template']); ?>" style="opacity: 1; background-image: url('images/<?php echo fnescapehtml($slides['background']); ?>');">
 	
-			<div class="<?php echo $slides['template']; ?>_title">
-			<h1><?php echo strtoupper(fncheckfortitle($slides['title'], $screenInfo[0]['defaultTitle'])); ?></h1>
+			<div class="<?php echo fnescapehtml($slides['template']); ?>_title">
+			<h1><?php echo fnescapehtml(strtoupper(fncheckfortitle($slides['title'], $screenInfo[0]['defaultTitle']))); ?></h1>
 		</div>
-		<div class="<?php echo $slides['template']; ?>_pic" style="background-image: url('images/slideimages/<?php echo $slides['picture']; ?>');">
+		<div class="<?php echo fnescapehtml($slides['template']); ?>_pic" style="background-image: url('images/slideimages/<?php echo fnescapehtml($slides['picture']); ?>');">
 			
 		</div>
-		<div class="<?php echo $slides['template']; ?>_message" <?php fntemplatehide($is_message); ?>>
+		<div class="<?php echo fnescapehtml($slides['template']); ?>_message" <?php fntemplatehide($is_message); ?>>
 			<h1 style="font-size: <?php echo $slides['fontSize']; ?>px; line-height: <?php echo $slides['lineHeight']; ?>px;" ><?php echo strtoupper($slides['message']); ?></h1>
 		</div>
 		
-		<div class="<?php echo $slides['template']; ?>_where" <?php fntemplatehide($is_where); ?>>
+		<div class="<?php echo fnescapehtml($slides['template']); ?>_where" <?php fntemplatehide($is_where); ?>>
 			<h1 style="color: #FFC627; text-align: right; ">WHERE</h1>
-			<h1><?php echo strtoupper($slides['theWhere']); ?></h1>
+			<h1><?php echo fnescapehtml(strtoupper($slides['theWhere'])); ?></h1>
 		</div>
 		
-		<div class="<?php echo $slides['template']; ?>_when" <?php fntemplatehide($is_when); ?>>
+		<div class="<?php echo fnescapehtml($slides['template']); ?>_when" <?php fntemplatehide($is_when); ?>>
 			<h1 style="color: #FFC627;">WHEN</h1>
-			<h1><?php echo strtoupper($slides['theWhen']); ?>
+			<h1><?php echo fnescapehtml(strtoupper($slides['theWhen'])); ?>
 			</h1>
 		</div>
 		
-		<div class="<?php echo $slides['template']; ?>_who" <?php fntemplatehide($is_who); ?>>
+		<div class="<?php echo fnescapehtml($slides['template']); ?>_who" <?php fntemplatehide($is_who); ?>>
 			<h1 style="color: #FFC627;">WHO</h1>
-			<h1><?php echo strtoupper($slides['theWho']); ?></h1>
+			<h1><?php echo fnescapehtml(strtoupper($slides['theWho'])); ?></h1>
 		</div>
 		
-		<div class="<?php echo $slides['template']; ?>_why" <?php fntemplatehide($is_why); ?>>
+		<div class="<?php echo fnescapehtml($slides['template']); ?>_why" <?php fntemplatehide($is_why); ?>>
 			<h1 style="color: #FFC627;">WHY</h1>
-			<h1><?php echo strtoupper($slides['theWhy']); ?></h1>
+			<h1><?php echo fnescapehtml(strtoupper($slides['theWhy'])); ?></h1>
 		</div>
 	</div>
 	
@@ -133,36 +133,36 @@ $t++;
 		
 	?>
 
-<div class="frame <?php echo $slides['template']; ?>" id="slide_<?php echo $i; ?>" style="opacity: 0; background-image: url('images/<?php echo $slides['background']; ?>');">
+<div class="frame <?php echo fnescapehtml($slides['template']); ?>" id="slide_<?php echo $i; ?>" style="opacity: 0; background-image: url('images/<?php echo fnescapehtml($slides['background']); ?>');">
 	
-		<div class="<?php echo $slides['template']; ?>_title">
+		<div class="<?php echo fnescapehtml($slides['template']); ?>_title">
 		<h1><?php echo strtoupper(fncheckfortitle($slides['title'], $screenInfo[0]['defaultTitle'])); ?></h1>
 	</div>
-	<div class="<?php echo $slides['template']; ?>_pic" style="background-image: url('images/slideimages/<?php echo $slides['picture']; ?>');">
+	<div class="<?php echo fnescapehtml($slides['template']); ?>_pic" style="background-image: url('images/slideimages/<?php echo fnescapehtml($slides['picture']); ?>');">
 		
 	</div>
-	<div class="<?php echo $slides['template']; ?>_message" <?php fntemplatehide($is_message); ?>>
-		<h1 style="font-size: <?php echo $slides['fontSize']; ?>px; line-height: <?php echo $slides['lineHeight']; ?>px;" ><?php echo strtoupper($slides['message']); ?></h1>
+	<div class="<?php echo fnescapehtml($slides['template']); ?>_message" <?php fntemplatehide($is_message); ?>>
+		<h1 style="font-size: <?php echo fnescapehtml($slides['fontSize']); ?>px; line-height: <?php echo fnescapehtml($slides['lineHeight']); ?>px;" ><?php echo fnescapehtml(strtoupper($slides['message'])); ?></h1>
 	</div>
 	
-	<div class="<?php echo $slides['template']; ?>_where" <?php fntemplatehide($is_where); ?>>
+	<div class="<?php echo fnescapehtml($slides['template']); ?>_where" <?php fntemplatehide($is_where); ?>>
 		<h1 style="	color: #FFC627; text-align: right; ">WHERE</h1>
-		<h1><?php echo strtoupper($slides['theWhere']); ?></h1>
+		<h1><?php echo fnescapehtml(strtoupper($slides['theWhere'])); ?></h1>
 	</div>
 	
-	<div class="<?php echo $slides['template']; ?>_when" <?php fntemplatehide($is_when); ?>>
+	<div class="<?php echo fnescapehtml($slides['template']); ?>_when" <?php fntemplatehide($is_when); ?>>
 		<h1 style="	color: #FFC627;">WHEN</h1>
-		<h1><?php echo strtoupper($slides['theWhen']); ?></h1>
+		<h1><?php echo fnescapehtml(strtoupper($slides['theWhen'])); ?></h1>
 	</div>
 	
-	<div class="<?php echo $slides['template']; ?>_who" <?php fntemplatehide($is_who); ?>>
+	<div class="<?php echo fnescapehtml($slides['template']); ?>_who" <?php fntemplatehide($is_who); ?>>
 		<h1 style="	color: #FFC627;">WHO</h1>
-		<h1><?php echo strtoupper($slides['theWho']); ?></h1>
+		<h1><?php echo fnescapehtml(strtoupper($slides['theWho'])); ?></h1>
 	</div>
 	
-	<div class="<?php echo $slides['template']; ?>_why" <?php fntemplatehide($is_why); ?>>
+	<div class="<?php echo fnescapehtml($slides['template']); ?>_why" <?php fntemplatehide($is_why); ?>>
 		<h1 style="	color: #FFC627;">WHY</h1>
-		<h1><?php echo strtoupper($slides['theWhy']); ?></h1>
+		<h1><?php echo fnescapehtml(strtoupper($slides['theWhy'])); ?></h1>
 	</div>
 </div>
 <?php

@@ -25,6 +25,14 @@ function fnlogout() {
 function fnlogin() {
 	$login = new Login($_POST['username'], $_POST['p']);
 }
+
+//ESC CHAR //
+function fnescapehtml($tobeescaped) {
+	$result = 'htmlspecialchars(' . $tobeescaped . ', ENT_QUOTES)';
+	return $result;
+}
+// END OF ESC CHAR //
+
 //ACCESS FUNCTIONS//
 function iaAllowedhere($PDO, $username, $screenid) {
 $thescreen = fnglobalquery($PDO, 'owner', 'screens', 'id', $screenid, 1, 1, 1, 1, 'id', 'ASC');
