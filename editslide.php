@@ -124,14 +124,14 @@
 						<div class="col-sm-6">
 							<div class="form-group" <?php fnforminputornot($is_message); ?>>
 								<label for="fontSize">Font Size</label>
-								<input type="range" min="40" max="140" class="form-control" id="fontSize" name="fontSize" value="<?php echo $slides[0]['fontSize']; ?>" required>
+								<input type="range" min="40" max="140" step="5" class="form-control" id="fontSize" name="fontSize" value="<?php echo $slides[0]['fontSize']; ?>" required>
 								<output name="fontSizeOutname" id="fontSizeOutid"><?php echo $slides[0]['fontSize']; ?></output>
 							</div>
 						</div>
 						<div class="col-sm-6">	
 							<div class="form-group" <?php fnforminputornot($is_message); ?>>
 								<label for="lineHeight">Line Height</label>
-								<input type="range" min="40" max="140" class="form-control" id="lineHeight" name="lineHeight" value="<?php echo $slides[0]['lineHeight']; ?>" required>
+								<input type="range" min="40" max="140" step="5" class="form-control" id="lineHeight" name="lineHeight" value="<?php echo $slides[0]['lineHeight']; ?>" required>
 								<output name="lineHeightOutname" id="lineHeightOutid"><?php echo $slides[0]['lineHeight']; ?></output>
 							</div>
 						</div>
