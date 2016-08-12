@@ -14,6 +14,7 @@
 	<?php // $screens = fnscreens($PDO, $_SESSION['user']['username'], 'testteacher'); ?>
 	<?php 
 			$screens = fnnewscreens($PDO, $_SESSION['user']['username']); 
+			
 			$isadmin = fnisadmin($PDO,  $_SESSION['user']['username']);
 	?>
 	

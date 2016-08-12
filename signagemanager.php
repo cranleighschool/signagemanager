@@ -5,14 +5,7 @@
 <html>
 <head>
 <?php 
-	include('head.php');
-
-		if(empty($_REQUEST['alert'])) {
-			//
-	} else {
-		$alert = $_REQUEST['alert'];
-	}
-?>
+	include('head.php');?>
 
 <title>Digital Signage Manager</title>
 	

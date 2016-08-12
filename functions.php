@@ -120,7 +120,7 @@ function fnnewscreens($PDO, $username) {
 	}	
 	$queryResult1 = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-	$stmt = $PDO->prepare("SELECT * FROM screens WHERE owner='TESTTEACHER'");
+	$stmt = $PDO->prepare("SELECT * FROM screens WHERE owner=:username");
 	$stmt->bindParam(':username', $username);
 
 	try {
