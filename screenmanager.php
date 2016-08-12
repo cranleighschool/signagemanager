@@ -24,26 +24,10 @@
 	$defaultTitle = $screen[0]['defaultTitle'];
 	
 	
-	
-	
-	//echo 'TESTAREA';
-	//$username = strtoupper($_SESSION['user']['username']);
-	//$screenid = $id;
-	//$thescreen = fnglobalquery($PDO, 'owner', 'screens', 'id', $screenid, 1, 1, 1, 1, 'id', 'ASC');
-	//var_dump($thescreen);
-	//echo 'The Owner is...' . $thescreen[0]['owner'];
-	//echo 'The User is...' . $username;
-	//if ($thescreen[0]['owner'] == $username) {
-	//	 echo 'HOOZAAAAAAAAH';
-	// }
-	
 ?>
-
 <title>Digital Signage Manager</title>
-	
 	<style>
 	</style>
-	
 </head>
 
 <body>

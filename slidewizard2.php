@@ -9,12 +9,13 @@
 	include('head.php');
 
 	if(empty($_REQUEST['screenName'])) {
-		$alert = '<div class="tjb_alertbox"><strong><h2>YOU HAVE NOT SELECTED A SCREEN - <a href="screenmanager.php">CLICK HERE</a></h2></strong></div>';
-		$_REQUEST['screenName'] = 1;
-		$screenName = 1;
+				$id = $screens[0]['id'];
 	} else {
 	$screenName = $_REQUEST['screenName'];
 	}
+	iaAllowedhere($PDO, $_SESSION['user']['username'], $screenName);
+	
+	
 	if(empty($_REQUEST['template'])) {
 		$alert = '<div class="tjb_alertbox"><strong><h2>YOU HAVE NOT SELECTED A TEMPLATE - <a href="slidewizard1.php?screenName=' . $screenName . '">CLICK HERE</a></h2></strong></div>';
 		$_REQUEST['template'] = 'main_photo_landscape';

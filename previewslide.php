@@ -13,10 +13,11 @@ if(!isset($_REQUEST['screenName'])) {
 	$screenid = $_REQUEST['screenName'];
 }
 if(!isset($_REQUEST['id'])) {
-	$id = 1;
+	$id = $screens[0]['id'];
 } else {
 	$id = $_REQUEST['id'];
 }
+iaAllowedhere($PDO, $_SESSION['user']['username'], $id);
 $tableName = 'screen' . $screenid;
 $slideInfo = fnglobalquery($PDO, '*', $tableName, 1, 1, 1, 1, 1, 1, 'orderNumber', 'ASC');
 $theslide = fnglobalquery($PDO, '*', $tableName, 'id', $id, 1, 1, 1, 1, 'orderNumber', 'ASC');

@@ -6,23 +6,25 @@
 <head>
 <?php 
 	include('head.php');
+	
+	if(empty($_REQUEST['screenName'])) {
+		$id = $screens[0]['id'];
+	} else {
+		$id = $_REQUEST['screenName'];
+	}	
+	iaAllowedhere($PDO, $_SESSION['user']['username'], $id);
+	
 	$templates = fnglobalquery($PDO, '*', 'templates', 1, 1, 1, 1, 1, 1, 'theOrder', 'ASC');
+	
 ?>
 <title>Slide Wizard - Select Template</title>
 
 </head>
 <body>
-<?php include('nav.php'); ?>
+<?php include('nav.php');	
+	 ?>
 	<div class="container tjb_container">
-	<?php 
-	if(empty($_REQUEST['screenName'])) {
-		echo '<div class="tjb_alertbox row"><strong><h2>';
-		echo strtoupper('You have not selected a Screen please - <a href="screenmanager.php">Click Here</a>');
-		echo '</strong></h2></div>';
-	} else {
-		$screenName = $_REQUEST['screenName'];
-	}
-	?>
+
 	<div class="page_title">
 		<h1>Select Template</h1>
 	</div>
@@ -35,7 +37,7 @@
 		}
 		?>
 		<div class="col-sm-4 padbox">
-		<a href="slidewizard2.php?template=<?php echo $tiles['className']; ?>&screenName=<?php echo $screenName; ?>"><div class="col-sm-12 template-select  text-center">
+		<a href="slidewizard2.php?template=<?php echo $tiles['className']; ?>&screenName=<?php echo $id; ?>"><div class="col-sm-12 template-select  text-center">
 		<div class="thumbnail-wrap">
 			<img class="img-responsive center-block" src="template-thumbnails\<?php echo $tiles['thumbnail']; ?>"/>
 		</div>

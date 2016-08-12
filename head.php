@@ -18,9 +18,9 @@
 	?>
 	
 	<?php
-		if(isset($_SESSION['errors']['error5301'])){ ?>
+		if(isset($_SESSION['errors']['tjberror'])){ ?>
 			<!-- THIS IS NOW SET TJB -->
 			<script type="text/javascript">
-				alert('<?php echo $_SESSION['errors']['error5301']; ?>');
+				alert('<?php echo $_SESSION['errors']['tjberror']; ?>');
 			</script>
 <?php } else { echo ' <!-- Dont Worry be happy -->'; } ?>

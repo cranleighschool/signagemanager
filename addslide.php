@@ -8,6 +8,7 @@
 	include('functions.php');
 	
 	$screenName = $_REQUEST['screenName'];
+	iaAllowedhere($PDO, $_SESSION['user']['username'], $screenName);
 	$screen = fnglobalquery($PDO, '*', 'screens', 'id', $screenName, 1, 1, 1, 1, 'id', 'ASC');
 	$defaultTitle = $screen[0]['defaultTitle'];
 	$screenid = $screen[0]['id'];

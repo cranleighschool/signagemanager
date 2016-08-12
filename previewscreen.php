@@ -8,7 +8,7 @@
 	include('head.php');
 
 if(!isset($_REQUEST['screenName'])) {
-	// Return to error screen
+	$id = $screens[0]['id'];
 } else {
 	$screenid = $_REQUEST['screenName'];
 }
