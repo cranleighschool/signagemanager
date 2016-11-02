@@ -42,7 +42,7 @@ foreach($slides as $trans) {
 $t++;
 ?>
 #slide_<?php echo $t; ?> {
-	transition: opacity 3s;
+	transition: opacity 1.5s;
 }
 
 <?php
