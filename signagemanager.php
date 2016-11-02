@@ -9,8 +9,8 @@
 
 <title>Digital Signage Manager</title>
 	
-	<style>
-	</style>
+<style>
+</style>
 	
 </head>
 
